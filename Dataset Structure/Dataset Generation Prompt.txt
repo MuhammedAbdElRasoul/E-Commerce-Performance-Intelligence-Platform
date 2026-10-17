@@ -1,0 +1,962 @@
+import pandas as pd
+import numpy as np
+from datetime import datetime, timedelta
+import random
+from faker import Faker
+
+fake = Faker()
+np.random.seed(42)
+random.seed(42)
+
+# الأرقام النهائية
+NUM_CUSTOMERS = 5000
+NUM_SELLERS = 150
+NUM_PRODUCTS = 400
+NUM_ORDERS = 10000
+
+print("=" * 60)
+print("توليد بيانات متجر إلكتروني عالمي")
+print("=" * 60)
+
+# ==========================================
+# 1. DATE DIMENSION
+# ==========================================
+print("\n1. توليد Date Dimension...")
+start_date = datetime(2022, 1, 1)
+end_date = datetime(2026, 3, 31)
+dates = []
+current = start_date
+
+holidays = {
+    '2022-11-25': 'Black Friday', '2022-12-25': 'Christmas', '2022-12-31': 'New Year',
+    '2022-07-04': 'Independence Day', '2022-10-31': 'Halloween',
+    '2023-11-24': 'Black Friday', '2023-12-25': 'Christmas', '2023-12-31': 'New Year',
+    '2023-07-04': 'Independence Day', '2023-10-31': 'Halloween',
+    '2024-11-29': 'Black Friday', '2024-12-25': 'Christmas', '2024-12-31': 'New Year',
+    '2024-07-04': 'Independence Day', '2024-10-31': 'Halloween',
+    '2025-11-28': 'Black Friday', '2025-12-25': 'Christmas', '2025-12-31': 'New Year',
+    '2025-07-04': 'Independence Day', '2025-10-31': 'Halloween',
+}
+
+while current <= end_date:
+    date_str = current.strftime('%Y-%m-%d')
+    dates.append({
+        'date_id': int(current.strftime('%Y%m%d')),
+        'full_date': current,
+        'day_of_week': current.strftime('%A'),
+        'week_number': current.isocalendar()[1],
+        'month': current.month,
+        'month_name': current.strftime('%B'),
+        'quarter': (current.month - 1) // 3 + 1,
+        'year': current.year,
+        'is_weekend': current.weekday() >= 5,
+        'is_holiday': date_str in holidays
+    })
+    current += timedelta(days=1)
+
+df_date = pd.DataFrame(dates)
+df_date.to_csv('date_dimension.csv', index=False)
+print(f"   ✓ date_dimension.csv ({len(df_date)} rows)")
+
+# ==========================================
+# 2. LOCATION
+# ==========================================
+print("\n2. توليد Location...")
+locations = []
+location_id = 1
+
+countries_data = {
+    'North America': {
+        'USA': ['California', 'Texas', 'Florida', 'New York', 'Illinois'],
+        'Canada': ['Ontario', 'Quebec', 'British Columbia', 'Alberta']
+    },
+    'South America': {
+        'Brazil': ['São Paulo', 'Rio de Janeiro', 'Minas Gerais'],
+        'Argentina': ['Buenos Aires', 'Córdoba', 'Santa Fe']
+    },
+    'Europe': {
+        'United Kingdom': ['England', 'Scotland', 'Wales'],
+        'Germany': ['Bavaria', 'North Rhine-Westphalia', 'Baden-Württemberg'],
+        'France': ['Île-de-France', 'Provence-Alpes-Côte d\'Azur', 'Auvergne-Rhône-Alpes'],
+        'Italy': ['Lombardy', 'Lazio', 'Campania']
+    },
+    'Oceania': {
+        'Australia': ['New South Wales', 'Victoria', 'Queensland'],
+        'New Zealand': ['Auckland', 'Wellington', 'Canterbury']
+    },
+    'Africa': {
+        'South Africa': ['Gauteng', 'Western Cape', 'KwaZulu-Natal'],
+        'Nigeria': ['Lagos', 'Abuja', 'Rivers']
+    }
+}
+
+cities_by_country = {
+    'USA': ['New York', 'Los Angeles', 'Chicago', 'Houston', 'Phoenix', 'Philadelphia', 'San Antonio', 'San Diego', 'Dallas', 'Austin'],
+    'Canada': ['Toronto', 'Vancouver', 'Montreal', 'Calgary', 'Edmonton', 'Ottawa', 'Quebec City', 'Winnipeg', 'Hamilton', 'Mississauga'],
+    'Brazil': ['São Paulo', 'Rio de Janeiro', 'Brasília', 'Salvador', 'Fortaleza', 'Belo Horizonte', 'Manaus', 'Curitiba', 'Recife', 'Porto Alegre'],
+    'Argentina': ['Buenos Aires', 'Córdoba', 'Rosario', 'Mendoza', 'La Plata', 'Tucumán', 'Mar del Plata', 'Salta', 'Santa Fe', 'San Juan'],
+    'United Kingdom': ['London', 'Manchester', 'Birmingham', 'Glasgow', 'Liverpool', 'Bristol', 'Sheffield', 'Leeds', 'Edinburgh', 'Leicester'],
+    'Germany': ['Berlin', 'Munich', 'Hamburg', 'Cologne', 'Frankfurt', 'Stuttgart', 'Düsseldorf', 'Leipzig', 'Dresden', 'Hanover'],
+    'France': ['Paris', 'Marseille', 'Lyon', 'Toulouse', 'Nice', 'Nantes', 'Strasbourg', 'Montpellier', 'Bordeaux', 'Lille'],
+    'Italy': ['Rome', 'Milan', 'Naples', 'Turin', 'Florence', 'Venice', 'Bologna', 'Genoa', 'Palermo', 'Bari'],
+    'Australia': ['Sydney', 'Melbourne', 'Brisbane', 'Perth', 'Adelaide', 'Gold Coast', 'Newcastle', 'Canberra', 'Wollongong', 'Hobart'],
+    'New Zealand': ['Auckland', 'Wellington', 'Christchurch', 'Hamilton', 'Tauranga', 'Dunedin', 'Palmerston North', 'Napier', 'Hibiscus Coast', 'New Plymouth'],
+    'South Africa': ['Johannesburg', 'Cape Town', 'Durban', 'Pretoria', 'Port Elizabeth', 'Bloemfontein', 'East London', 'Polokwane', 'Nelspruit', 'Kimberley'],
+    'Nigeria': ['Lagos', 'Abuja', 'Kano', 'Ibadan', 'Port Harcourt', 'Benin City', 'Kaduna', 'Enugu', 'Onitsha', 'Aba']
+}
+
+timezones = {
+    'USA': 'America/New_York', 'Canada': 'America/Toronto', 'Brazil': 'America/Sao_Paulo',
+    'Argentina': 'America/Argentina/Buenos_Aires', 'United Kingdom': 'Europe/London',
+    'Germany': 'Europe/Berlin', 'France': 'Europe/Paris', 'Italy': 'Europe/Rome',
+    'Australia': 'Australia/Sydney', 'New Zealand': 'Pacific/Auckland',
+    'South Africa': 'Africa/Johannesburg', 'Nigeria': 'Africa/Lagos'
+}
+
+for region, countries in countries_data.items():
+    for country, states in countries.items():
+        cities = cities_by_country.get(country, [fake.city() for _ in range(10)])
+        for i, city in enumerate(cities[:10]):
+            locations.append({
+                'location_id': location_id,
+                'country': country,
+                'state': states[i % len(states)],
+                'city': city,
+                'zip_code': fake.zipcode(),
+                'region': region,
+                'timezone': timezones.get(country, 'UTC')
+            })
+            location_id += 1
+            if location_id > 150:
+                break
+        if location_id > 150:
+            break
+    if location_id > 150:
+        break
+
+df_location = pd.DataFrame(locations)
+df_location.to_csv('location.csv', index=False)
+print(f"   ✓ location.csv ({len(df_location)} rows)")
+
+# ==========================================
+# 3. CATEGORY
+# ==========================================
+print("\n3. توليد Category...")
+categories = [
+    (1, 'Electronics'), (2, 'Clothing'), (3, 'Home Furniture'), (4, 'Sports Equipment'),
+    (5, 'Beauty & Personal Care'), (6, 'Books'), (7, 'Toys & Games'), (8, 'Automotive'),
+    (9, 'Health & Wellness'), (10, 'Kitchen & Dining'), (11, 'Office Products'), (12, 'Pet Supplies')
+]
+df_category = pd.DataFrame(categories, columns=['category_id', 'category_name'])
+df_category.to_csv('category.csv', index=False)
+print(f"   ✓ category.csv ({len(df_category)} rows)")
+
+# ==========================================
+# 4. SUBCATEGORY
+# ==========================================
+print("\n4. توليد Subcategory...")
+subcategories = [
+    (1, 'Smartphones', 1), (2, 'Laptops', 1), (3, 'Headphones', 1), (4, 'Smartwatches', 1), (5, 'Tablets', 1), (6, 'Cameras', 1),
+    (7, 'Running Shoes', 2), (8, 'T-Shirts', 2), (9, 'Jeans', 2), (10, 'Jackets', 2), (11, 'Dresses', 2), (12, 'Sneakers', 2),
+    (13, 'Office Chairs', 3), (14, 'Sofas', 3), (15, 'Bed Frames', 3), (16, 'Dining Tables', 3), (17, 'Bookshelves', 3), (18, 'Desks', 3),
+    (19, 'Yoga Mats', 4), (20, 'Dumbbells', 4), (21, 'Treadmills', 4), (22, 'Basketballs', 4), (23, 'Soccer Balls', 4), (24, 'Tennis Rackets', 4),
+    (25, 'Shampoos', 5), (26, 'Face Creams', 5), (27, 'Makeup Kits', 5), (28, 'Perfumes', 5), (29, 'Hair Dryers', 5), (30, 'Electric Shavers', 5),
+    (31, 'Fiction', 6), (32, 'Non-Fiction', 6), (33, 'Children Books', 6), (34, 'Textbooks', 6), (35, 'Cookbooks', 6), (36, 'Biographies', 6),
+    (37, 'Action Figures', 7), (38, 'Board Games', 7), (39, 'Lego Sets', 7), (40, 'Dolls', 7), (41, 'Puzzles', 7), (42, 'Remote Control Cars', 7),
+    (43, 'Car Covers', 8), (44, 'Floor Mats', 8), (45, 'Dash Cams', 8), (46, 'Car Batteries', 8), (47, 'Tire Inflators', 8), (48, 'Seat Covers', 8),
+    (49, 'Vitamins', 9), (50, 'Protein Powders', 9), (51, 'Massage Guns', 9), (52, 'Blood Pressure Monitors', 9), (53, 'Essential Oils', 9), (54, 'Fitness Trackers', 9),
+    (55, 'Blenders', 10), (56, 'Air Fryers', 10), (57, 'Knife Sets', 10), (58, 'Cookware Sets', 10), (59, 'Coffee Makers', 10), (60, 'Dinnerware', 10),
+    (61, 'Printers', 11), (62, 'Paper Shredders', 11), (63, 'Desk Lamps', 11), (64, 'Notebooks', 11), (65, 'Pens', 11), (66, 'Staplers', 11),
+    (67, 'Dog Food', 12), (68, 'Cat Beds', 12), (69, 'Leashes', 12), (70, 'Pet Carriers', 12), (71, 'Aquarium Filters', 12), (72, 'Bird Cages', 12)
+]
+df_subcategory = pd.DataFrame(subcategories, columns=['subcategory_id', 'subcategory_name', 'category_id'])
+df_subcategory.to_csv('subcategory.csv', index=False)
+print(f"   ✓ subcategory.csv ({len(df_subcategory)} rows)")
+
+# ==========================================
+# 5. CATEGORY SPECIFICATIONS (الأبعاد والأسعار والشحن)
+# ==========================================
+
+category_specs = {
+    1: {  # Electronics
+        'name': 'Electronics',
+        'dimensions': {'length': (10, 35), 'width': (5, 25), 'height': (1, 10), 'weight': (100, 2500)},
+        'cost_range': (50, 800),
+        'freight_base': 3,
+        'weight_factor': 0.3,
+        'volume_factor': 0.1
+    },
+    2: {  # Clothing
+        'name': 'Clothing',
+        'dimensions': {'length': (50, 120), 'width': (30, 60), 'height': (1, 5), 'weight': (150, 800)},
+        'cost_range': (8, 120),
+        'freight_base': 2,
+        'weight_factor': 0.2,
+        'volume_factor': 0.05
+    },
+    3: {  # Home Furniture
+        'name': 'Home Furniture',
+        'dimensions': {'length': (40, 200), 'width': (30, 150), 'height': (20, 100), 'weight': (5000, 50000)},
+        'cost_range': (100, 1500),
+        'freight_base': 15,
+        'weight_factor': 1.0,
+        'volume_factor': 0.5
+    },
+    4: {  # Sports Equipment
+        'name': 'Sports Equipment',
+        'dimensions': {'length': (20, 150), 'width': (10, 60), 'height': (5, 50), 'weight': (200, 15000)},
+        'cost_range': (15, 400),
+        'freight_base': 5,
+        'weight_factor': 0.5,
+        'volume_factor': 0.2
+    },
+    5: {  # Beauty & Personal Care
+        'name': 'Beauty',
+        'dimensions': {'length': (5, 20), 'width': (3, 15), 'height': (2, 25), 'weight': (50, 600)},
+        'cost_range': (5, 80),
+        'freight_base': 1.5,
+        'weight_factor': 0.15,
+        'volume_factor': 0.05
+    },
+    6: {  # Books
+        'name': 'Books',
+        'dimensions': {'length': (15, 28), 'width': (10, 22), 'height': (1, 5), 'weight': (200, 1200)},
+        'cost_range': (5, 40),
+        'freight_base': 2,
+        'weight_factor': 0.25,
+        'volume_factor': 0.05
+    },
+    7: {  # Toys & Games
+        'name': 'Toys',
+        'dimensions': {'length': (10, 50), 'width': (8, 40), 'height': (5, 30), 'weight': (100, 3000)},
+        'cost_range': (8, 100),
+        'freight_base': 2.5,
+        'weight_factor': 0.3,
+        'volume_factor': 0.08
+    },
+    8: {  # Automotive
+        'name': 'Automotive',
+        'dimensions': {'length': (20, 150), 'width': (10, 80), 'height': (5, 40), 'weight': (500, 20000)},
+        'cost_range': (20, 500),
+        'freight_base': 6,
+        'weight_factor': 0.6,
+        'volume_factor': 0.25
+    },
+    9: {  # Health & Wellness
+        'name': 'Health',
+        'dimensions': {'length': (10, 40), 'width': (8, 30), 'height': (5, 30), 'weight': (100, 5000)},
+        'cost_range': (10, 200),
+        'freight_base': 2,
+        'weight_factor': 0.2,
+        'volume_factor': 0.08
+    },
+    10: {  # Kitchen & Dining
+        'name': 'Kitchen',
+        'dimensions': {'length': (15, 60), 'width': (10, 45), 'height': (5, 40), 'weight': (200, 8000)},
+        'cost_range': (15, 300),
+        'freight_base': 4,
+        'weight_factor': 0.4,
+        'volume_factor': 0.15
+    },
+    11: {  # Office Products
+        'name': 'Office',
+        'dimensions': {'length': (10, 60), 'width': (8, 50), 'height': (5, 40), 'weight': (100, 15000)},
+        'cost_range': (10, 250),
+        'freight_base': 3,
+        'weight_factor': 0.35,
+        'volume_factor': 0.12
+    },
+    12: {  # Pet Supplies
+        'name': 'Pet',
+        'dimensions': {'length': (15, 100), 'width': (10, 70), 'height': (10, 80), 'weight': (200, 12000)},
+        'cost_range': (8, 150),
+        'freight_base': 3.5,
+        'weight_factor': 0.35,
+        'volume_factor': 0.12
+    }
+}
+
+# دالة حساب قيمة الشحن
+def calculate_freight_value(category_id, weight_g, length_cm, width_cm, height_cm):
+    specs = category_specs[category_id]
+    weight_kg = weight_g / 1000
+    volume_l = (length_cm * width_cm * height_cm) / 1000
+    
+    freight = (specs['freight_base'] + 
+               (weight_kg * specs['weight_factor']) + 
+               (volume_l * specs['volume_factor']))
+    
+    # إضافة عشوائية بنسبة ±15%
+    freight = freight * random.uniform(0.85, 1.15)
+    
+    return round(max(2, freight), 2)
+
+# ==========================================
+# 6. PRODUCTS (400 rows) - بالتعديلات الجديدة
+# ==========================================
+print("\n5. توليد Products...")
+
+# أسماء منتجات حقيقية مرتبطة بالـ subcategory
+real_products_by_subcategory = {
+    # Electronics (1)
+    1: [('iPhone 15 Pro', 'Apple'), ('Samsung Galaxy S24', 'Samsung'), ('Google Pixel 8', 'Google'), ('OnePlus 12', 'OnePlus')],
+    2: [('MacBook Pro', 'Apple'), ('Dell XPS 15', 'Dell'), ('HP Spectre x360', 'HP'), ('Lenovo ThinkPad X1', 'Lenovo')],
+    3: [('Sony WH-1000XM5', 'Sony'), ('Bose QC45', 'Bose'), ('AirPods Pro 2', 'Apple'), ('Sennheiser Momentum 4', 'Sennheiser')],
+    4: [('Apple Watch Series 9', 'Apple'), ('Samsung Galaxy Watch 6', 'Samsung'), ('Garmin Fenix 7', 'Garmin')],
+    5: [('iPad Pro', 'Apple'), ('Samsung Galaxy Tab S9', 'Samsung'), ('Microsoft Surface Pro', 'Microsoft')],
+    6: [('Canon EOS R5', 'Canon'), ('Sony Alpha A7 IV', 'Sony'), ('Nikon Z8', 'Nikon')],
+    
+    # Clothing (2)
+    7: [('Nike Air Zoom Pegasus', 'Nike'), ('Adidas Ultraboost', 'Adidas'), ('New Balance 1080', 'New Balance'), ('Puma RS-X', 'Puma')],
+    8: [('Nike Cotton T-Shirt', 'Nike'), ('Adidas Essentials Tee', 'Adidas'), ('H&M Basic T-Shirt', 'H&M'), ('Zara Basic Tee', 'Zara')],
+    9: [("Levi's 501", 'Levi\'s'), ('Wrangler Jeans', 'Wrangler'), ('Diesel Jeans', 'Diesel'), ('Uniqlo Jeans', 'Uniqlo')],
+    10: [('The North Face Jacket', 'The North Face'), ('Columbia Winter Jacket', 'Columbia'), ('Patagonia Jacket', 'Patagonia'), ('Zara Puffer Jacket', 'Zara')],
+    11: [('Zara Summer Dress', 'Zara'), ('H&M Cotton Dress', 'H&M'), ('Mango Dress', 'Mango'), ('Forever21 Dress', 'Forever21')],
+    12: [('Nike Air Force 1', 'Nike'), ('Adidas Stan Smith', 'Adidas'), ('Puma Suede', 'Puma'), ('Converse Chuck Taylor', 'Converse')],
+    
+    # Home Furniture (3)
+    13: [('Herman Miller Aeron', 'Herman Miller'), ('Steelcase Leap', 'Steelcase'), ('Secretlab Titan', 'Secretlab'), ('HON Ignition', 'HON')],
+    14: [('IKEA KIVIK', 'IKEA'), ('Ashley Furniture Sofa', 'Ashley'), ('West Elm Sofa', 'West Elm'), ('Burrow Nomad', 'Burrow')],
+    15: [('IKEA MALM', 'IKEA'), ('Zinus Bed Frame', 'Zinus'), ('Tempur-Pedic Bed', 'Tempur-Pedic'), ('Casper Bed', 'Casper')],
+    16: [('IKEA MÖRBYLÅNGA', 'IKEA'), ('West Elm Dining Table', 'West Elm'), ('Pottery Barn Table', 'Pottery Barn')],
+    17: [('IKEA BILLY', 'IKEA'), ('Sauder Bookshelf', 'Sauder'), ('Wayfair Bookshelf', 'Wayfair')],
+    18: [('IKEA BEKANT', 'IKEA'), ('Flexispot Standing Desk', 'Flexispot'), ('Uplift Desk', 'Uplift')],
+    
+    # Sports Equipment (4)
+    19: [('Lululemon Yoga Mat', 'Lululemon'), ('Manduka PRO Mat', 'Manduka'), ('Gaiam Yoga Mat', 'Gaiam')],
+    20: [('Bowflex Dumbbells', 'Bowflex'), ('CAP Dumbbells', 'CAP'), ('Amazon Basics Dumbbells', 'Amazon')],
+    21: [('NordicTrack Treadmill', 'NordicTrack'), ('Peloton Tread', 'Peloton'), ('Sole Fitness Treadmill', 'Sole')],
+    22: [('Spalding Basketball', 'Spalding'), ('Wilson Basketball', 'Wilson'), ('Nike Basketball', 'Nike')],
+    23: [('Adidas Soccer Ball', 'Adidas'), ('Nike Soccer Ball', 'Nike'), ('Puma Soccer Ball', 'Puma')],
+    24: [('Wilson Tennis Racket', 'Wilson'), ('Babolat Tennis Racket', 'Babolat'), ('Head Tennis Racket', 'Head')],
+    
+    # Beauty & Personal Care (5)
+    25: [('Pantene Shampoo', 'Pantene'), ('Head & Shoulders', 'P&G'), ('Dove Shampoo', 'Dove')],
+    26: [('Olay Face Cream', 'Olay'), ('Nivea Cream', 'Nivea'), ('Cetaphil Cream', 'Cetaphil')],
+    27: [('Maybelline Makeup Kit', 'Maybelline'), ('L\'Oreal Kit', 'L\'Oreal'), ('Revlon Kit', 'Revlon')],
+    28: [('Chanel Perfume', 'Chanel'), ('Dior Perfume', 'Dior'), ('Gucci Perfume', 'Gucci')],
+    29: [('Dyson Hair Dryer', 'Dyson'), ('Revlon Hair Dryer', 'Revlon'), ('Conair Hair Dryer', 'Conair')],
+    30: [('Braun Shaver', 'Braun'), ('Philips Shaver', 'Philips'), ('Panasonic Shaver', 'Panasonic')],
+    
+    # Books (6)
+    31: [('The Great Gatsby', 'Scribner'), ('1984', 'Penguin'), ('To Kill a Mockingbird', 'HarperCollins')],
+    32: [('Sapiens', 'Harper'), ('Becoming', 'Crown'), ('Educated', 'Random House')],
+    33: [('Harry Potter', 'Scholastic'), ('The Cat in the Hat', 'Random House'), ('Goodnight Moon', 'HarperCollins')],
+    34: [('Calculus Textbook', 'Pearson'), ('Physics Textbook', 'Cambridge'), ('Biology Textbook', 'McGraw-Hill')],
+    35: [('Salt Fat Acid Heat', 'Simon & Schuster'), ('Joy of Cooking', 'Scribner'), ('Mastering the Art of French Cooking', 'Knopf')],
+    36: [('Steve Jobs', 'Simon & Schuster'), ('Michelle Obama', 'Crown'), ('Elon Musk', 'Random House')],
+    
+    # Toys & Games (7)
+    37: [('Marvel Action Figures', 'Hasbro'), ('DC Action Figures', 'Mattel'), ('Star Wars Figures', 'Hasbro')],
+    38: [('Monopoly', 'Hasbro'), ('Chess Set', 'Spinmaster'), ('Scrabble', 'Mattel')],
+    39: [('LEGO Creator', 'LEGO'), ('LEGO Technic', 'LEGO'), ('LEGO City', 'LEGO')],
+    40: [('Barbie Doll', 'Mattel'), ('Baby Alive', 'Hasbro'), ('American Girl Doll', 'Mattel')],
+    41: [('Ravensburger Puzzle', 'Ravensburger'), ('Melissa & Doug Puzzle', 'Melissa & Doug')],
+    42: [('Traxxas RC Car', 'Traxxas'), ('Redcat Racing', 'Redcat'), ('ARRMA RC Car', 'ARRMA')],
+    
+    # Automotive (8)
+    43: [('Covercraft Car Cover', 'Covercraft'), ('Buddy Cover', 'Buddy'), ('OxGord Cover', 'OxGord')],
+    44: [('WeatherTech Mats', 'WeatherTech'), ('Husky Liners', 'Husky'), ('3D Maxpider', '3D')],
+    45: [('Garmin Dash Cam', 'Garmin'), ('Nextbase Dash Cam', 'Nextbase'), ('Thinkware Dash Cam', 'Thinkware')],
+    46: [('Optima Battery', 'Optima'), ('DieHard Battery', 'DieHard'), ('Interstate Battery', 'Interstate')],
+    47: [('Viair Inflator', 'Viair'), ('Slime Inflator', 'Slime'), ('AstroAI Inflator', 'AstroAI')],
+    48: [('FH Group Seat Covers', 'FH Group'), ('Coverking Seat Covers', 'Coverking'), ('BDK Seat Covers', 'BDK')],
+    
+    # Health & Wellness (9)
+    49: [('Nature Made Vitamins', 'Nature Made'), ('Centrum Vitamins', 'Centrum'), ('Garden of Life', 'Garden of Life')],
+    50: [('Optimum Nutrition Protein', 'Optimum Nutrition'), ('MuscleTech Protein', 'MuscleTech'), ('Orgain Protein', 'Orgain')],
+    51: [('Theragun Massager', 'Theragun'), ('Hyperice Massager', 'Hyperice'), ('RENPHO Massager', 'RENPHO')],
+    52: [('Omron Monitor', 'Omron'), ('Greater Goods Monitor', 'Greater Goods'), ('iHealth Monitor', 'iHealth')],
+    53: [('doTERRA Oils', 'doTERRA'), ('Young Living Oils', 'Young Living'), ('Plant Therapy Oils', 'Plant Therapy')],
+    54: [('Fitbit Tracker', 'Fitbit'), ('Garmin Tracker', 'Garmin'), ('Xiaomi Tracker', 'Xiaomi')],
+    
+    # Kitchen & Dining (10)
+    55: [('Vitamix Blender', 'Vitamix'), ('Ninja Blender', 'Ninja'), ('NutriBullet Blender', 'NutriBullet')],
+    56: [('Philips Air Fryer', 'Philips'), ('Ninja Air Fryer', 'Ninja'), ('Cosori Air Fryer', 'Cosori')],
+    57: [('Wusthof Knife Set', 'Wusthof'), ('Zwilling Knife Set', 'Zwilling'), ('Chicago Cutlery', 'Chicago')],
+    58: [('Cuisinart Cookware', 'Cuisinart'), ('T-fal Cookware', 'T-fal'), ('Calphalon Cookware', 'Calphalon')],
+    59: [('Keurig Coffee Maker', 'Keurig'), ('Nespresso Machine', 'Nespresso'), ('Breville Espresso', 'Breville')],
+    60: [('Corelle Dinnerware', 'Corelle'), ('Pfaltzgraff Dinnerware', 'Pfaltzgraff'), ('Lenox Dinnerware', 'Lenox')],
+    
+    # Office Products (11)
+    61: [('HP Printer', 'HP'), ('Canon Printer', 'Canon'), ('Epson Printer', 'Epson'), ('Brother Printer', 'Brother')],
+    62: [('Amazon Basics Shredder', 'Amazon'), ('Fellowes Shredder', 'Fellowes'), ('Bonsaii Shredder', 'Bonsaii')],
+    63: [('TaoTronics Lamp', 'TaoTronics'), ('BenQ Lamp', 'BenQ'), ('Amazon Basics Lamp', 'Amazon')],
+    64: [('Moleskine Notebook', 'Moleskine'), ('Leuchtturm Notebook', 'Leuchtturm'), ('Rhodia Notebook', 'Rhodia')],
+    65: [('Bic Pens', 'Bic'), ('Paper Mate Pens', 'Paper Mate'), ('Pilot Pens', 'Pilot')],
+    66: [('Swingline Stapler', 'Swingline'), ('Bostitch Stapler', 'Bostitch'), ('Stanley Stapler', 'Stanley')],
+    
+    # Pet Supplies (12)
+    67: [('Purina Dog Food', 'Purina'), ('Hill\'s Dog Food', 'Hill\'s'), ('Royal Canin Dog Food', 'Royal Canin')],
+    68: [('PetFusion Cat Bed', 'PetFusion'), ('K&H Cat Bed', 'K&H'), ('Amazon Basics Cat Bed', 'Amazon')],
+    69: [('Flexi Leash', 'Flexi'), ('Mighty Paw Leash', 'Mighty Paw'), ('PetSafe Leash', 'PetSafe')],
+    70: [('Petmate Carrier', 'Petmate'), ('Sherpa Carrier', 'Sherpa'), ('Amazon Basics Carrier', 'Amazon')],
+    71: [('AquaClear Filter', 'AquaClear'), ('Marineland Filter', 'Marineland'), ('Tetra Filter', 'Tetra')],
+    72: [('Prevue Bird Cage', 'Prevue'), ('Yaheetech Bird Cage', 'Yaheetech'), ('Vision Bird Cage', 'Vision')],
+}
+
+products = []
+product_id = 1
+products_per_subcategory = NUM_PRODUCTS // len(subcategories) + 1
+
+for subcat_id, subcat_name, cat_id in subcategories:
+    for i in range(products_per_subcategory):
+        if product_id > NUM_PRODUCTS:
+            break
+        
+        # الحصول على اسم منتج حقيقي من القائمة
+        if subcat_id in real_products_by_subcategory:
+            prod_name, brand = random.choice(real_products_by_subcategory[subcat_id])
+            # إضافة سنة أو إصدار بشكل عشوائي
+            suffix = random.choice(['', '2024', 'Pro', 'Max', 'Plus', 'Elite', 'X'])
+            if suffix:
+                prod_name = f"{prod_name} {suffix}".strip()
+        else:
+            # إذا لم يكن هناك قائمة للمنتجات، استخدم اسم عام
+            brand = random.choice(['Generic', 'Standard', 'Basic'])
+            prod_name = f"{brand} {subcat_name} {random.choice(['Standard', 'Basic', 'Essential'])}"
+        
+        # الحصول على ranges الخاصة بالـ category
+        specs = category_specs[cat_id]
+        
+        # توليد الأبعاد حسب ranges الفئة
+        length = round(random.uniform(*specs['dimensions']['length']), 1)
+        width = round(random.uniform(*specs['dimensions']['width']), 1)
+        height = round(random.uniform(*specs['dimensions']['height']), 1)
+        weight = random.randint(*specs['dimensions']['weight'])
+        
+        # توليد التكلفة والسعر
+        cost = round(random.uniform(*specs['cost_range']), 2)
+        price = round(cost * random.uniform(1.1, 1.6), 2)
+        
+        # تحديد حالة المنتج
+        status_choice = random.choices(['active', 'active', 'active', 'active', 'inactive'], weights=[75, 75, 75, 75, 15])[0]
+        if status_choice == 'active':
+            avail = random.choices(['in_stock', 'out_of_stock'], weights=[75, 25])[0]
+        else:
+            avail = 'discontinued'
+        
+        # تحديد الموسم (معالجة خاصة لـ Clothing)
+        if cat_id == 2:  # Clothing
+            if subcat_id in [8, 11]:  # T-Shirts, Dresses
+                product_season = 'summer'
+            elif subcat_id == 10:  # Jackets
+                product_season = 'winter'
+            else:  # Running Shoes, Jeans, Sneakers
+                product_season = 'all_year'
+        else:
+            product_season = 'all_year'
+        
+        products.append({
+            'product_id': product_id,
+            'product_name': prod_name,
+            'category_id': cat_id,
+            'subcategory_id': subcat_id,
+            'product_brand': brand,
+            'product_weight_g': weight,
+            'product_length_cm': length,
+            'product_height_cm': height,
+            'product_width_cm': width,
+            'product_cost': cost,
+            'product_price': price,
+            'product_status': status_choice,
+            'product_availability_status': avail,
+            'product_season': product_season,
+            'product_launch_date': fake.date_between(start_date=datetime(2020,1,1), end_date=datetime(2024,12,31)),
+            'is_returnable': random.choice([True, False])
+        })
+        product_id += 1
+    if product_id > NUM_PRODUCTS:
+        break
+
+df_products = pd.DataFrame(products[:NUM_PRODUCTS])
+df_products.to_csv('products.csv', index=False)
+print(f"   ✓ products.csv ({len(df_products)} rows)")
+
+# ==========================================
+# 7. CUSTOMERS - بأسماء فريدة
+# ==========================================
+print("\n6. توليد Customers بأسماء فريدة...")
+
+names_by_region = {
+    'North America': {
+        'first': ['John', 'Michael', 'David', 'James', 'Robert', 'William', 'Richard', 'Joseph', 'Thomas', 'Charles', 'Christopher', 'Daniel', 'Matthew', 'Anthony', 'Donald', 'Mark', 'Paul', 'Steven', 'Andrew', 'Kenneth',
+                  'Mary', 'Patricia', 'Jennifer', 'Linda', 'Elizabeth', 'Barbara', 'Susan', 'Jessica', 'Sarah', 'Karen', 'Lisa', 'Nancy', 'Betty', 'Margaret', 'Sandra', 'Ashley', 'Kimberly', 'Emily', 'Donna', 'Michelle'],
+        'middle': ['Alan', 'Lee', 'Ray', 'Scott', 'Brian', 'Kevin', 'Timothy', 'Ronald', 'Jeffrey', 'Ryan', 'Gary', 'Eric', 'Stephen', 'Larry', 'Justin', 'Jeremy', 'Harold', 'Kyle', 'Zachary', 'Brandon',
+                   'Ann', 'Marie', 'Lynn', 'Rose', 'Jane', 'Elizabeth', 'Grace', 'Ruth', 'Claire', 'Joy', 'Faith', 'Hope', 'Nicole', 'Amanda', 'Megan', 'Lauren', 'Rachel', 'Danielle', 'Heather', 'Courtney'],
+        'last': ['Smith', 'Johnson', 'Williams', 'Brown', 'Jones', 'Garcia', 'Miller', 'Davis', 'Rodriguez', 'Martinez', 'Hernandez', 'Lopez', 'Gonzalez', 'Wilson', 'Anderson', 'Thomas', 'Taylor', 'Moore', 'Jackson', 'Martin',
+                 'Lee', 'Perez', 'Thompson', 'White', 'Harris', 'Sanchez', 'Clark', 'Ramirez', 'Lewis', 'Robinson', 'Walker', 'Young', 'Allen', 'King', 'Wright', 'Scott', 'Torres', 'Nguyen', 'Hill', 'Flores']
+    },
+    'Europe': {
+        'first': ['James', 'William', 'George', 'Charles', 'Frederick', 'Arthur', 'Henry', 'Edward', 'Albert', 'Thomas', 'David', 'John', 'Robert', 'Michael', 'Peter', 'Paul', 'Mark', 'Andrew', 'Philip', 'Simon',
+                  'Marie', 'Jeanne', 'Marguerite', 'Francoise', 'Catherine', 'Elisabeth', 'Anne', 'Claire', 'Sophie', 'Julie', 'Isabelle', 'Nathalie', 'Helene', 'Christine', 'Patricia', 'Sylvie', 'Michelle', 'Laurence', 'Caroline', 'Virginie'],
+        'middle': ['William', 'Henry', 'James', 'Edward', 'Francis', 'Louis', 'Charles', 'Philip', 'Alexander', 'Nicholas', 'Patrick', 'Sebastian', 'Julian', 'Adrian', 'Dominic', 'Christian', 'Stephen', 'Vincent', 'Benedict', 'Christopher',
+                   'Marie', 'Anne', 'Louise', 'Jeanne', 'Claire', 'Elise', 'Juliette', 'Catherine', 'Marguerite', 'Elizabeth', 'Charlotte', 'Emily', 'Victoria', 'Alexandra', 'Madeleine', 'Josephine', 'Gabrielle', 'Sophie', 'Laure', 'Helene'],
+        'last': ['Brown', 'Jones', 'Williams', 'Taylor', 'Davies', 'Evans', 'Thomas', 'Johnson', 'Roberts', 'Walker', 'Wright', 'Robinson', 'Thompson', 'White', 'Hughes', 'Edwards', 'Green', 'Hall', 'Wood', 'Harris',
+                 'Dubois', 'Martin', 'Bernard', 'Thomas', 'Petit', 'Robert', 'Richard', 'Durand', 'Leroy', 'Moreau', 'Simon', 'Laurent', 'Michel', 'Garcia', 'David', 'Bertrand', 'Roux', 'Vincent', 'Fournier', 'Morel']
+    },
+    'South America': {
+        'first': ['Juan', 'Carlos', 'Luis', 'Jose', 'Antonio', 'Manuel', 'Francisco', 'Javier', 'Miguel', 'Rafael', 'Pablo', 'Andres', 'Alejandro', 'Sergio', 'Fernando', 'Ricardo', 'Diego', 'Gabriel', 'Daniel', 'Adrian',
+                  'Maria', 'Ana', 'Lucia', 'Carmen', 'Isabel', 'Laura', 'Marta', 'Gabriela', 'Fernanda', 'Sofia', 'Valentina', 'Camila', 'Juliana', 'Andrea', 'Patricia', 'Carolina', 'Daniela', 'Paula', 'Claudia', 'Veronica'],
+        'middle': ['Carlos', 'Jose', 'Luis', 'Manuel', 'Antonio', 'Francisco', 'Javier', 'Miguel', 'Rafael', 'Pablo', 'Andres', 'Alejandro', 'Sergio', 'Fernando', 'Ricardo', 'Diego', 'Gabriel', 'Daniel', 'Adrian', 'Alberto',
+                   'Maria', 'Ana', 'Lucia', 'Carmen', 'Isabel', 'Laura', 'Marta', 'Gabriela', 'Fernanda', 'Sofia', 'Valentina', 'Camila', 'Juliana', 'Andrea', 'Patricia', 'Carolina', 'Daniela', 'Paula', 'Claudia', 'Rosa'],
+        'last': ['Garcia', 'Rodriguez', 'Martinez', 'Lopez', 'Gonzalez', 'Perez', 'Sanchez', 'Ramirez', 'Torres', 'Flores', 'Rivera', 'Gomez', 'Diaz', 'Cruz', 'Morales', 'Reyes', 'Ortiz', 'Gutierrez', 'Chavez', 'Ramos',
+                 'Silva', 'Santos', 'Oliveira', 'Souza', 'Lima', 'Pereira', 'Costa', 'Alves', 'Ferreira', 'Carvalho', 'Rodrigues', 'Barbosa', 'Ribeiro', 'Martins', 'Rocha', 'Almeida', 'Nunes', 'Mendes', 'Araujo', 'Cardoso']
+    },
+    'Oceania': {
+        'first': ['Jack', 'Oliver', 'William', 'James', 'Thomas', 'Liam', 'Noah', 'Ethan', 'Lucas', 'Mason', 'Benjamin', 'Jacob', 'Michael', 'Alexander', 'Daniel', 'Samuel', 'Henry', 'Joseph', 'David', 'Charlie',
+                  'Olivia', 'Charlotte', 'Amelia', 'Ava', 'Mia', 'Grace', 'Chloe', 'Ella', 'Sophie', 'Zoe', 'Isabella', 'Ruby', 'Lily', 'Emily', 'Hannah', 'Sienna', 'Maya', 'Scarlett', 'Madison', 'Abigail'],
+        'middle': ['James', 'William', 'Thomas', 'John', 'Robert', 'Michael', 'David', 'Joseph', 'Charles', 'Edward', 'Henry', 'Frank', 'George', 'Raymond', 'Walter', 'Harold', 'Paul', 'Richard', 'Kenneth', 'Ronald',
+                   'Rose', 'Grace', 'Ann', 'Marie', 'Jane', 'Louise', 'Elizabeth', 'Margaret', 'Catherine', 'Frances', 'Josephine', 'Claire', 'Emily', 'Alice', 'Helen', 'Patricia', 'Shirley', 'Ruth', 'Dorothy', 'Joan'],
+        'last': ['Smith', 'Jones', 'Williams', 'Brown', 'Wilson', 'Taylor', 'Johnson', 'White', 'Martin', 'Anderson', 'Thompson', 'Thomas', 'Walker', 'Harris', 'Lee', 'Ryan', 'Robinson', 'Kelly', 'King', 'Davis',
+                 'Campbell', 'Mitchell', 'Roberts', 'Carter', 'Phillips', 'Evans', 'Turner', 'Torres', 'Parker', 'Collins', 'Edwards', 'Stewart', 'Flores', 'Morris', 'Nguyen', 'Murphy', 'Rivera', 'Cook', 'Rogers', 'Morgan']
+    },
+    'Africa': {
+        'first': ['Thabo', 'Sipho', 'Lunga', 'Mandla', 'Nkosi', 'Bongani', 'Jabulani', 'Sibusiso', 'Vusi', 'Mpho', 'Kagiso', 'Tendai', 'Tafadzwa', 'Simba', 'Chidi', 'Kwame', 'Kofi', 'Amadi', 'Idris', 'Olumide',
+                  'Nomsa', 'Thandi', 'Zinhle', 'Lerato', 'Precious', 'Nomvula', 'Naledi', 'Tshepo', 'Dineo', 'Rudo', 'Amara', 'Zuri', 'Ayanna', 'Imani', 'Fatima', 'Amina', 'Chiamaka', 'Ngozi', 'Ifeoma', 'Chinwe'],
+        'middle': ['David', 'Michael', 'James', 'John', 'Peter', 'Paul', 'Andrew', 'Matthew', 'Mark', 'Luke', 'Simon', 'Stephen', 'Philip', 'Thomas', 'Joseph', 'Samuel', 'Daniel', 'Benjamin', 'Nathan', 'Joshua',
+                   'Mary', 'Grace', 'Mercy', 'Faith', 'Hope', 'Joy', 'Peace', 'Love', 'Patience', 'Blessing', 'Gift', 'Precious', 'Princess', 'Queen', 'Angel', 'Charity', 'Chastity', 'Divine', 'Esther', 'Ruth'],
+        'last': ['Nkosi', 'Dlamini', 'Ndlovu', 'Khumalo', 'Sithole', 'Mkhize', 'Zulu', 'Ngcobo', 'Mthembu', 'Mkhwanazi', 'Buthelezi', 'Mhlongo', 'Msimango', 'Ngubane', 'Mahlangu', 'Mokoena', 'Naidoo', 'Pillay', 'Reddy', 'Govender',
+                 'Okonkwo', 'Okafor', 'Nwosu', 'Eze', 'Onyeka', 'Ibrahim', 'Oluwaseun', 'Adebayo', 'Adeyemi', 'Balogun', 'Ogunleye', 'Fadipe', 'Adeleke', 'Okafor', 'Nnamdi', 'Chukwu', 'Okoro', 'Nwachukwu', 'Okafor', 'Ezeobi']
+    }
+}
+
+customers = []
+segments = ['new', 'regular', 'VIP']
+segment_weights = [60, 35, 5]
+channels = ['web', 'app', 'mobile', 'other']
+channel_weights = [40, 35, 20, 5]
+
+locations_list = df_location.to_dict('records')
+used_names = set()
+
+for i in range(NUM_CUSTOMERS):
+    location = random.choice(locations_list)
+    region = location['region']
+    name_data = names_by_region.get(region, names_by_region['North America'])
+    
+    for _ in range(100):
+        first = random.choice(name_data['first'])
+        middle = random.choice(name_data['middle'])
+        last = random.choice(name_data['last'])
+        customer_name = f"{first} {middle} {last}"
+        if customer_name not in used_names:
+            used_names.add(customer_name)
+            break
+    
+    customers.append({
+        'customer_id': i + 1,
+        'location_id': location['location_id'],
+        'customer_name': customer_name,
+        'customer_gender': random.choice(['Male', 'Female']),
+        'customer_age': random.randint(18, 75),
+        'customer_segment': random.choices(segments, weights=segment_weights)[0],
+        'preferred_channel': random.choices(channels, weights=channel_weights)[0],
+        'signup_date': fake.date_between(start_date=datetime(2020,1,1), end_date=datetime(2024,12,31))
+    })
+
+df_customers = pd.DataFrame(customers)
+df_customers.to_csv('customers.csv', index=False)
+print(f"   ✓ customers.csv ({len(df_customers)} rows) - {len(used_names)} اسم فريد")
+
+# ==========================================
+# 8. SELLERS - بأسماء فريدة
+# ==========================================
+print("\n7. توليد Sellers بأسماء فريدة...")
+
+sellers = []
+tiers = ['gold', 'silver', 'bronze']
+tier_weights = [20, 50, 30]
+used_seller_names = set()
+
+for i in range(NUM_SELLERS):
+    location = random.choice(locations_list)
+    tier = random.choices(tiers, weights=tier_weights)[0]
+    if tier == 'gold':
+        rating = round(random.uniform(4.0, 5.0), 1)
+    elif tier == 'silver':
+        rating = round(random.uniform(3.5, 4.0), 1)
+    else:
+        rating = round(random.uniform(2.5, 3.5), 1)
+    
+    region = location['region']
+    name_data = names_by_region.get(region, names_by_region['North America'])
+    
+    for _ in range(100):
+        first = random.choice(name_data['first'])
+        middle = random.choice(name_data['middle'])
+        last = random.choice(name_data['last'])
+        seller_name = f"{first} {middle} {last}"
+        if seller_name not in used_seller_names and seller_name not in used_names:
+            used_seller_names.add(seller_name)
+            break
+    
+    sellers.append({
+        'seller_id': i + 1,
+        'seller_name': seller_name,
+        'location_id': location['location_id'],
+        'seller_active_flag': random.choice([True, False]),
+        'seller_join_date': fake.date_between(start_date=datetime(2018,1,1), end_date=datetime(2023,12,31)),
+        'seller_tier': tier,
+        'seller_rating': rating
+    })
+
+df_sellers = pd.DataFrame(sellers)
+df_sellers.to_csv('sellers.csv', index=False)
+print(f"   ✓ sellers.csv ({len(df_sellers)} rows) - {len(used_seller_names)} اسم فريد")
+
+# ==========================================
+# 9. ORDERS
+# ==========================================
+print("\n8. توليد Orders...")
+
+customer_order_counts = {}
+customer_ids = df_customers['customer_id'].tolist()
+
+for cust_id in customer_ids:
+    choice = random.choices(['single', 'few', 'many'], weights=[60, 25, 15])[0]
+    if choice == 'single':
+        customer_order_counts[cust_id] = 1
+    elif choice == 'few':
+        customer_order_counts[cust_id] = random.randint(2, 3)
+    else:
+        customer_order_counts[cust_id] = random.randint(4, 8)
+
+order_customers = []
+for cust_id, count in customer_order_counts.items():
+    order_customers.extend([cust_id] * count)
+
+random.shuffle(order_customers)
+order_customers = order_customers[:NUM_ORDERS]
+
+print("   جاري توليد تواريخ الطلبات...")
+order_dates = []
+total_days = (end_date - start_date).days
+
+for _ in range(NUM_ORDERS):
+    random_days = random.randint(0, total_days)
+    order_date = start_date + timedelta(days=random_days)
+    quarter = (order_date.month - 1) // 3 + 1
+    if quarter == 4:
+        if random.random() < 0.35:
+            order_dates.append(order_date)
+        else:
+            random_days = random.randint(0, total_days)
+            order_dates.append(start_date + timedelta(days=random_days))
+    else:
+        order_dates.append(order_date)
+
+random.shuffle(order_dates)
+print(f"   تم توليد {len(order_dates)} تاريخ بنجاح")
+
+orders = []
+order_statuses = ['delivered', 'shipped', 'canceled', 'returned']
+status_weights = [80, 10, 5, 5]
+
+for i in range(NUM_ORDERS):
+    purchase_time = order_dates[i] + timedelta(hours=random.randint(0, 23), minutes=random.randint(0, 59))
+    approval_time = purchase_time + timedelta(hours=random.randint(0, 24))
+    status = random.choices(order_statuses, weights=status_weights)[0]
+    
+    orders.append({
+        'order_id': i + 1,
+        'customer_id': order_customers[i],
+        'order_purchase_timestamp': purchase_time,
+        'order_approved_at': approval_time,
+        'order_status': status,
+        'order_channel': random.choices(channels, weights=channel_weights)[0],
+        'order_type': random.choices(['first_time', 'repeat'], weights=[40, 60])[0],
+        'coupon_code': f'COUPON_{random.randint(1000,9999)}' if random.random() < 0.15 else None,
+        'is_gift': random.random() < 0.08
+    })
+
+df_orders = pd.DataFrame(orders)
+df_orders.to_csv('orders.csv', index=False)
+print(f"   ✓ orders.csv ({len(df_orders)} rows)")
+
+# ==========================================
+# 10. ORDER ITEMS (مع Freight Value محسوبة)
+# ==========================================
+print("\n9. توليد Order Items...")
+
+products_df = df_products
+top_products = products_df.sample(frac=0.2)['product_id'].tolist()
+
+order_items = []
+item_id = 1
+gold_sellers = df_sellers[df_sellers['seller_tier'] == 'gold']['seller_id'].tolist()
+
+for order in orders:
+    num_items = random.randint(1, 4)
+    for _ in range(num_items):
+        if random.random() < 0.8 and top_products:
+            product = products_df[products_df['product_id'] == random.choice(top_products)].iloc[0]
+        else:
+            product = products_df.sample(1).iloc[0]
+        
+        if random.random() < 0.7 and gold_sellers:
+            seller_id = random.choice(gold_sellers)
+        else:
+            seller_id = random.choice(df_sellers['seller_id'].tolist())
+        
+        unit_price = product['product_price']
+        has_coupon = order['coupon_code'] is not None
+        discount = 0
+        discount_pct = 0
+        
+        if has_coupon and random.random() < 0.7:
+            discount_pct = random.uniform(5, 40)
+            discount = round(unit_price * discount_pct / 100, 2)
+        
+        # حساب قيمة الشحن بناءً على أبعاد المنتج والفئة
+        freight_value = calculate_freight_value(
+            product['category_id'],
+            product['product_weight_g'],
+            product['product_length_cm'],
+            product['product_width_cm'],
+            product['product_height_cm']
+        )
+        
+        order_items.append({
+            'order_item_id': item_id,
+            'order_id': order['order_id'],
+            'product_id': product['product_id'],
+            'seller_id': seller_id,
+            'quantity': random.randint(1, 3),
+            'unit_price': unit_price,
+            'freight_value': freight_value,
+            'cogs': product['product_cost'],
+            'discount_value': discount,
+            'discount_pct': round(discount_pct, 1),
+            'return_flag': False
+        })
+        item_id += 1
+
+df_order_items = pd.DataFrame(order_items)
+df_order_items.to_csv('order_items.csv', index=False)
+print(f"   ✓ order_items.csv ({len(df_order_items)} rows)")
+
+# ==========================================
+# 11. PAYMENTS
+# ==========================================
+print("\n10. توليد Payments...")
+
+payments = []
+payment_types = ['card', 'paypal', 'cod', 'other']
+payment_weights = [50, 20, 20, 10]
+
+for order in orders:
+    order_items_list = df_order_items[df_order_items['order_id'] == order['order_id']]
+    if len(order_items_list) > 0:
+        total = (order_items_list['unit_price'] * order_items_list['quantity']).sum()
+        total += order_items_list['freight_value'].sum()
+        total -= order_items_list['discount_value'].sum()
+        total = round(total, 2)
+    else:
+        total = 0
+    
+    if order['order_status'] in ['delivered', 'shipped']:
+        status = 'success'
+    elif order['order_status'] == 'canceled':
+        status = 'failed'
+    else:
+        status = random.choices(['success', 'refunded'], weights=[40, 60])[0]
+    
+    payments.append({
+        'payment_id': order['order_id'],
+        'order_id': order['order_id'],
+        'payment_type': random.choices(payment_types, weights=payment_weights)[0],
+        'payment_value': total,
+        'payment_status': status,
+        'payment_date': order['order_purchase_timestamp'] + timedelta(hours=random.randint(0, 48))
+    })
+
+df_payments = pd.DataFrame(payments)
+df_payments.to_csv('payments.csv', index=False)
+print(f"   ✓ payments.csv ({len(df_payments)} rows)")
+
+# ==========================================
+# 12. DELIVERY (بدون تواريخ فارغة)
+# ==========================================
+print("\n11. توليد Delivery (بدون تواريخ فارغة)...")
+
+shipping_providers = {
+    'North America': ['FedEx', 'UPS', 'USPS'],
+    'Europe': ['DHL', 'local carrier'],
+    'South America': ['local carrier'],
+    'Africa': ['local carrier'],
+    'Oceania': ['local carrier']
+}
+
+deliveries = []
+
+for order in orders:
+    customer = df_customers[df_customers['customer_id'] == order['customer_id']].iloc[0]
+    location = df_location[df_location['location_id'] == customer['location_id']].iloc[0]
+    provider_list = shipping_providers.get(location['region'], ['local carrier'])
+    
+    carrier_date = order['order_approved_at'] + timedelta(days=random.randint(1, 3))
+    estimated_days = random.randint(5, 14)
+    estimated = carrier_date + timedelta(days=estimated_days)
+    
+    if order['order_status'] == 'delivered':
+        delivery_days = random.randint(2, 9)
+        customer_date = carrier_date + timedelta(days=delivery_days)
+        delay = (customer_date - estimated).days
+        
+        if delay <= 0:
+            delivery_status = 'on_time'
+        elif delay <= 3:
+            delivery_status = 'late'
+        else:
+            delivery_status = 'very_late'
+            
+    elif order['order_status'] == 'shipped':
+        customer_date = estimated + timedelta(days=random.randint(-2, 5))
+        delay = (customer_date - estimated).days
+        if delay <= 0:
+            delivery_status = 'estimated_on_time'
+        elif delay <= 3:
+            delivery_status = 'estimated_late'
+        else:
+            delivery_status = 'estimated_very_late'
+            
+    elif order['order_status'] == 'canceled':
+        customer_date = carrier_date + timedelta(days=random.randint(1, 3))
+        delay = 0
+        delivery_status = 'canceled'
+        
+    else:
+        delivery_days = random.randint(2, 9)
+        customer_date = carrier_date + timedelta(days=delivery_days)
+        delay = (customer_date - estimated).days
+        
+        if delay <= 0:
+            delivery_status = 'returned_on_time'
+        elif delay <= 3:
+            delivery_status = 'returned_late'
+        else:
+            delivery_status = 'returned_very_late'
+    
+    deliveries.append({
+        'order_id': order['order_id'],
+        'order_delivered_carrier_date': carrier_date,
+        'order_delivered_customer_date': customer_date,
+        'order_estimated_delivery_date': estimated,
+        'shipping_provider': random.choice(provider_list),
+        'delay_days': delay if delay is not None else 0,
+        'delivery_status': delivery_status
+    })
+
+df_delivery = pd.DataFrame(deliveries)
+df_delivery.to_csv('delivery.csv', index=False)
+print(f"   ✓ delivery.csv ({len(df_delivery)} rows) - بدون تواريخ فارغة")
+
+# تحديث return_flag للطلبات المرتجعة
+returned_orders = [o for o in orders if o['order_status'] == 'returned']
+for returned_order in returned_orders:
+    items = df_order_items[df_order_items['order_id'] == returned_order['order_id']].index
+    if len(items) > 0:
+        if random.random() < 0.6:
+            df_order_items.loc[items, 'return_flag'] = True
+        else:
+            num_to_return = max(1, len(items) // 2)
+            df_order_items.loc[random.sample(list(items), num_to_return), 'return_flag'] = True
+
+df_order_items.to_csv('order_items.csv', index=False)
+
+# ==========================================
+# 13. REVIEWS
+# ==========================================
+print("\n12. توليد Reviews...")
+
+reviews = []
+review_id = 1
+delivered_orders = [o for o in orders if o['order_status'] == 'delivered']
+
+positive_reviews = [
+    "Excellent product, highly recommend!", "Great quality and fast shipping", "Perfect, exactly as described",
+    "Amazing value for money", "Best purchase I've made this year", "Very satisfied with my purchase",
+    "Works perfectly, would buy again", "Exceeded my expectations", "Great customer service too"
+]
+
+neutral_reviews = [
+    "It's okay, nothing special", "Decent product for the price", "Average quality, does the job",
+    "Not bad but could be better", "Works as expected", "Fair product for the cost"
+]
+
+negative_reviews = [
+    "Poor quality, broke quickly", "Not as described, very disappointed", "Terrible customer service",
+    "Product arrived damaged", "Does not work properly", "Waste of money, would not recommend"
+]
+
+for order in delivered_orders:
+    if random.random() < 0.65:
+        delivery = df_delivery[df_delivery['order_id'] == order['order_id']].iloc[0]
+        review_date = delivery['order_delivered_customer_date'] + timedelta(days=random.randint(2, 14))
+        score = random.choices([1,2,3,4,5], weights=[5,10,15,35,35])[0]
+        
+        if score >= 4:
+            sentiment = 'positive'
+            message_pool = positive_reviews
+        elif score == 3:
+            sentiment = 'neutral'
+            message_pool = neutral_reviews
+        else:
+            sentiment = 'negative'
+            message_pool = negative_reviews
+        
+        if random.random() < 0.5:
+            review_type = 'text'
+            review_message = random.choice(message_pool)
+            review_title = review_message[:50]
+        else:
+            review_type = 'rating_only'
+            review_message = None
+            review_title = None
+        
+        reviews.append({
+            'review_id': review_id,
+            'order_id': order['order_id'],
+            'review_score': score,
+            'review_comment_title': review_title,
+            'review_comment_message': review_message,
+            'review_creation_date': review_date,
+            'review_type': review_type,
+            'review_sentiment': sentiment,
+            'is_verified_purchase': True
+        })
+        review_id += 1
+
+df_reviews = pd.DataFrame(reviews)
+df_reviews.to_csv('reviews.csv', index=False)
+print(f"   ✓ reviews.csv ({len(df_reviews)} rows)")
+
+# ==========================================
+# النهاية
+# ==========================================
+print("\n" + "=" * 60)
+print("✅ تم توليد جميع الملفات بنجاح!")
+print("=" * 60)
+print("\nالملفات التي تم إنشاؤها:")
+print("  1. date_dimension.csv")
+print("  2. location.csv")
+print("  3. category.csv")
+print("  4. subcategory.csv")
+print("  5. products.csv")
+print("  6. customers.csv")
+print("  7. sellers.csv")
+print("  8. orders.csv")
+print("  9. order_items.csv")
+print("  10. payments.csv")
+print("  11. delivery.csv")
+print("  12. reviews.csv")
+print(f"\n📊 إحصائيات الأسماء الفريدة:")
+print(f"   👥 العملاء: {len(used_names)} اسم فريد")
+print(f"   🏪 البائعين: {len(used_seller_names)} اسم فريد")
+print("\n✅ جميع التعديلات مطبقة:")
+print("   • Product Season: Clothing فقط له summer/winter والباقي all_year")
+print("   • Dimensions: لكل Category ranges خاصة")
+print("   • Freight Value: محسوبة حسب الأبعاد والوزن")
+print("   • Product Names: مرتبطة بـ Subcategory")
+print("   • Delivery: بدون أي تواريخ فارغة")

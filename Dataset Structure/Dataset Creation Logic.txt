@@ -1,0 +1,555 @@
+# COMPLETE LOGIC FOR GLOBAL E-COMMERCE SYNTHETIC DATASET
+
+## SYSTEM OVERVIEW
+
+The dataset simulates a real global e-commerce company with complete business logic, regional authenticity, and data integrity. All constraints are enforced with zero exceptions. The system generates 12 interconnected tables with realistic distributions, seasonality patterns, and business rules.
+
+The entire dataset is generated using Python with pandas, numpy, faker, and random libraries. All random processes are seeded for reproducibility.
+
+## GENERAL SETTINGS
+
+Time Range: January 2022 to March 2026
+Currency: USD (all prices final, tax-inclusive, no tax fields)
+Language: English only
+
+Excluded Regions: Asia and all Arab countries
+Included Regions: North America, South America, Europe, Oceania, Africa (non-Arab countries only)
+
+## TABLE 1: DATE DIMENSION LOGIC
+
+Purpose: Create a complete calendar covering the entire data period.
+
+Logic:
+- Date range from January 1, 2022 to March 31, 2026
+- Total days: 1,550 days
+- Each day has a unique date_id in YYYYMMDD format
+- Day of week calculated from full_date
+- Week number calculated using ISO calendar
+- Month, month_name, quarter, and year extracted from full_date
+- is_weekend = True for Saturday and Sunday, False otherwise
+- is_holiday = True for specific dates (Black Friday, Christmas, New Year, Independence Day, Halloween) for each year 2022-2025
+
+Output columns:
+date_id, full_date, day_of_week, week_number, month, month_name, quarter, year, is_weekend, is_holiday
+
+## TABLE 2: LOCATION LOGIC
+
+Purpose: Create geographic hierarchy for customers and sellers with real cities.
+
+Logic:
+- Five regions: North America, South America, Europe, Oceania, Africa
+- Each region contains 2-4 countries
+- Each country has 3-5 states
+- Each country has exactly 10 real cities
+- Each zip code maps to exactly one city
+- Timezone assigned based on country
+- Total locations: 150
+
+Countries included:
+North America: USA (California, Texas, Florida, New York, Illinois), Canada (Ontario, Quebec, British Columbia, Alberta)
+South America: Brazil (São Paulo, Rio de Janeiro, Minas Gerais), Argentina (Buenos Aires, Córdoba, Santa Fe)
+Europe: United Kingdom (England, Scotland, Wales), Germany (Bavaria, North Rhine-Westphalia, Baden-Württemberg), France (Île-de-France, Provence-Alpes-Côte d'Azur, Auvergne-Rhône-Alpes), Italy (Lombardy, Lazio, Campania)
+Oceania: Australia (New South Wales, Victoria, Queensland), New Zealand (Auckland, Wellington, Canterbury)
+Africa: South Africa (Gauteng, Western Cape, KwaZulu-Natal), Nigeria (Lagos, Abuja, Rivers)
+
+Real cities by country:
+USA: New York, Los Angeles, Chicago, Houston, Phoenix, Philadelphia, San Antonio, San Diego, Dallas, Austin
+Canada: Toronto, Vancouver, Montreal, Calgary, Edmonton, Ottawa, Quebec City, Winnipeg, Hamilton, Mississauga
+Brazil: São Paulo, Rio de Janeiro, Brasília, Salvador, Fortaleza, Belo Horizonte, Manaus, Curitiba, Recife, Porto Alegre
+Argentina: Buenos Aires, Córdoba, Rosario, Mendoza, La Plata, Tucumán, Mar del Plata, Salta, Santa Fe, San Juan
+United Kingdom: London, Manchester, Birmingham, Glasgow, Liverpool, Bristol, Sheffield, Leeds, Edinburgh, Leicester
+Germany: Berlin, Munich, Hamburg, Cologne, Frankfurt, Stuttgart, Düsseldorf, Leipzig, Dresden, Hanover
+France: Paris, Marseille, Lyon, Toulouse, Nice, Nantes, Strasbourg, Montpellier, Bordeaux, Lille
+Italy: Rome, Milan, Naples, Turin, Florence, Venice, Bologna, Genoa, Palermo, Bari
+Australia: Sydney, Melbourne, Brisbane, Perth, Adelaide, Gold Coast, Newcastle, Canberra, Wollongong, Hobart
+New Zealand: Auckland, Wellington, Christchurch, Hamilton, Tauranga, Dunedin, Palmerston North, Napier, Hibiscus Coast, New Plymouth
+South Africa: Johannesburg, Cape Town, Durban, Pretoria, Port Elizabeth, Bloemfontein, East London, Polokwane, Nelspruit, Kimberley
+Nigeria: Lagos, Abuja, Kano, Ibadan, Port Harcourt, Benin City, Kaduna, Enugu, Onitsha, Aba
+
+Output columns:
+location_id (PK), country, state, city, zip_code, region, timezone
+
+## TABLE 3: CATEGORY LOGIC
+
+Purpose: Create 12 real-world product categories.
+
+Logic:
+- Exactly 12 categories
+- Category names are real business categories commonly used in e-commerce
+- Each category has a unique category_id
+
+Categories list:
+1. Electronics
+2. Clothing
+3. Home Furniture
+4. Sports Equipment
+5. Beauty & Personal Care
+6. Books
+7. Toys & Games
+8. Automotive
+9. Health & Wellness
+10. Kitchen & Dining
+11. Office Products
+12. Pet Supplies
+
+Output columns:
+category_id (PK), category_name
+
+## TABLE 4: SUBCATEGORY LOGIC
+
+Purpose: Create 72 logical subcategories with strict category relationships.
+
+Logic:
+- Minimum 5 subcategories per category (actual: 6 per category)
+- Total subcategories: 72
+- Each subcategory belongs strictly to one category
+- Subcategory names are real and commercially used
+- No generic or placeholder names
+
+Subcategories by category:
+Electronics: Smartphones, Laptops, Headphones, Smartwatches, Tablets, Cameras
+Clothing: Running Shoes, T-Shirts, Jeans, Jackets, Dresses, Sneakers
+Home Furniture: Office Chairs, Sofas, Bed Frames, Dining Tables, Bookshelves, Desks
+Sports Equipment: Yoga Mats, Dumbbells, Treadmills, Basketballs, Soccer Balls, Tennis Rackets
+Beauty & Personal Care: Shampoos, Face Creams, Makeup Kits, Perfumes, Hair Dryers, Electric Shavers
+Books: Fiction, Non-Fiction, Children Books, Textbooks, Cookbooks, Biographies
+Toys & Games: Action Figures, Board Games, Lego Sets, Dolls, Puzzles, Remote Control Cars
+Automotive: Car Covers, Floor Mats, Dash Cams, Car Batteries, Tire Inflators, Seat Covers
+Health & Wellness: Vitamins, Protein Powders, Massage Guns, Blood Pressure Monitors, Essential Oils, Fitness Trackers
+Kitchen & Dining: Blenders, Air Fryers, Knife Sets, Cookware Sets, Coffee Makers, Dinnerware
+Office Products: Printers, Paper Shredders, Desk Lamps, Notebooks, Pens, Staplers
+Pet Supplies: Dog Food, Cat Beds, Leashes, Pet Carriers, Aquarium Filters, Bird Cages
+
+Output columns:
+subcategory_id (PK), subcategory_name, category_id (FK)
+
+## TABLE 5: PRODUCTS LOGIC
+
+Purpose: Create 400 realistic products with proper dimensions, pricing, and category relationships.
+
+Logic:
+- Total products: 400
+- Each product belongs to one category and one subcategory
+- Product names are real and market-accurate
+- Product brands are real brands
+- Product_price must be 10% to 60% higher than product_cost
+
+Dimensions by category ranges:
+Electronics: length 10-35 cm, width 5-25 cm, height 1-10 cm, weight 100-2500 g
+Clothing: length 50-120 cm, width 30-60 cm, height 1-5 cm, weight 150-800 g
+Home Furniture: length 40-200 cm, width 30-150 cm, height 20-100 cm, weight 5000-50000 g
+Sports Equipment: length 20-150 cm, width 10-60 cm, height 5-50 cm, weight 200-15000 g
+Beauty: length 5-20 cm, width 3-15 cm, height 2-25 cm, weight 50-600 g
+Books: length 15-28 cm, width 10-22 cm, height 1-5 cm, weight 200-1200 g
+Toys & Games: length 10-50 cm, width 8-40 cm, height 5-30 cm, weight 100-3000 g
+Automotive: length 20-150 cm, width 10-80 cm, height 5-40 cm, weight 500-20000 g
+Health & Wellness: length 10-40 cm, width 8-30 cm, height 5-30 cm, weight 100-5000 g
+Kitchen & Dining: length 15-60 cm, width 10-45 cm, height 5-40 cm, weight 200-8000 g
+Office Products: length 10-60 cm, width 8-50 cm, height 5-40 cm, weight 100-15000 g
+Pet Supplies: length 15-100 cm, width 10-70 cm, height 10-80 cm, weight 200-12000 g
+
+Cost ranges by category:
+Electronics: $50-800
+Clothing: $8-120
+Home Furniture: $100-1500
+Sports Equipment: $15-400
+Beauty: $5-80
+Books: $5-40
+Toys & Games: $8-100
+Automotive: $20-500
+Health & Wellness: $10-200
+Kitchen & Dining: $15-300
+Office Products: $10-250
+Pet Supplies: $8-150
+
+Price calculation: price = cost * random.uniform(1.1, 1.6)
+
+Product status distribution:
+75% active + in_stock
+10% active + out_of_stock
+15% inactive + discontinued
+
+Product season logic:
+For Clothing category only:
+- T-Shirts and Dresses: summer
+- Jackets: winter
+- Running Shoes, Jeans, Sneakers: all_year
+For all other categories: all_year
+
+Product launch date: between 2020 and 2024
+is_returnable: randomly True or False
+
+Product name logic: Each product name is tied to its subcategory with real brand names. Example: Electronics -> Smartphones -> iPhone 15 Pro (Apple). The system has a complete dictionary of real product names for each subcategory.
+
+Output columns:
+product_id (PK), product_name, category_id (FK), subcategory_id (FK), product_brand, product_weight_g, product_length_cm, product_height_cm, product_width_cm, product_cost, product_price, product_status, product_availability_status, product_season, product_launch_date, is_returnable
+
+## TABLE 6: CUSTOMERS LOGIC
+
+Purpose: Create 5,000 customers with unique regional names and realistic distribution.
+
+Logic:
+- Total customers: 5,000
+- Each customer has a unique name (First + Middle + Last)
+- Names follow regional cultural conventions
+- Customer age: 18-75 years
+- signup_date must be before first order
+
+Regional name distribution:
+North America: 30% (1,500 customers) - English names
+Europe: 30% (1,500 customers) - European names
+South America: 15% (750 customers) - Spanish/Portuguese names
+Africa: 15% (750 customers) - African names
+Oceania: 10% (500 customers) - Australian/New Zealand names
+
+Name generation: Each region has 40 first names, 40 middle names, and 40 last names. Total possible unique name combinations: 40 x 40 x 40 x 5 = 320,000 unique names. The system ensures no duplicate names across all customers and sellers.
+
+Customer segments:
+New: 60% of customers
+Regular: 35% of customers
+VIP: 5% of customers (these generate 30% of total revenue)
+
+Preferred channels:
+Web: 40%
+App: 35%
+Mobile: 20%
+Other: 5%
+
+Customer gender: Male or Female (random)
+
+Orders per customer distribution:
+60% of customers have exactly 1 order
+25% of customers have 2-3 orders
+15% of customers have 4 or more orders
+
+Output columns:
+customer_id (PK), location_id (FK), customer_name, customer_gender, customer_age, customer_segment, preferred_channel, signup_date
+
+## TABLE 7: SELLERS LOGIC
+
+Purpose: Create 150 sellers with unique names and tier-based performance.
+
+Logic:
+- Total sellers: 150
+- Each seller has a unique name (First + Middle + Last)
+- Names follow same regional conventions as customers
+- Seller names are unique and do not duplicate customer names
+
+Seller distribution by region:
+North America: 30% (45 sellers)
+Europe: 30% (45 sellers)
+South America: 15% (23 sellers)
+Africa: 15% (22 sellers)
+Oceania: 10% (15 sellers)
+
+Seller tiers:
+Gold: 20% of sellers (30 sellers) - rating 4.0 to 5.0 - generate 70% of revenue
+Silver: 50% of sellers (75 sellers) - rating 3.5 to 4.0
+Bronze: 30% of sellers (45 sellers) - rating 2.5 to 3.5
+
+seller_active_flag: randomly True or False
+seller_join_date: between 2018 and 2023
+
+Output columns:
+seller_id (PK), seller_name, location_id (FK), seller_active_flag, seller_join_date, seller_tier, seller_rating
+
+## TABLE 8: ORDERS LOGIC
+
+Purpose: Create 10,000 orders with realistic timing, seasonality, and status distribution.
+
+Logic:
+- Total orders: 10,000
+- Each order is linked to one customer
+- order_purchase_timestamp: datetime of purchase
+- order_approved_at: purchase time + 0 to 24 hours
+
+Order status distribution:
+Delivered: 80% (8,000 orders)
+Shipped: 10% (1,000 orders)
+Canceled: 5% (500 orders)
+Returned: 5% (500 orders)
+
+Seasonality distribution:
+Q4 (October-December): 35% of orders (3,500 orders)
+Q1 (January-March): 20% of orders (2,000 orders)
+Q2 (April-June): 20% of orders (2,000 orders)
+Q3 (July-September): 25% of orders (2,500 orders)
+
+Holiday effect: Orders increase by 35% on public holidays (Black Friday, Christmas, New Year, Independence Day, Halloween)
+Weekend effect: Orders increase by 20% on Saturdays and Sundays
+Peak ordering hours: 7 PM to 11 PM (60% of orders occur during these hours)
+
+Order channels:
+Web: 40%
+App: 35%
+Mobile: 20%
+Other: 5%
+
+Order types:
+First_time: 40% (customer's first order)
+Repeat: 60% (returning customer orders)
+
+Coupon code: 15% of orders have a coupon code (COUPON_XXXX format)
+Is_gift: 8% of orders are marked as gifts
+
+Output columns:
+order_id (PK), customer_id (FK), order_purchase_timestamp, order_approved_at, order_status, order_channel, order_type, coupon_code, is_gift
+
+## TABLE 9: ORDER ITEMS LOGIC
+
+Purpose: Create approximately 20,000 order items linking products to orders with pricing and shipping logic.
+
+Logic:
+- Each order has 1 to 4 items (average 2 items)
+- Total items approximately 20,000
+- Each item links one product to one order
+- Each item has one seller
+
+Product skew (80/20 rule):
+20% of products generate 80% of sales
+When selecting a product for an order item, there is an 80% chance to select from the top 20% of products
+
+Seller skew (80/20 rule):
+20% of sellers (Gold tier) generate 70% of revenue
+When selecting a seller for an order item, there is a 70% chance to select a Gold seller
+
+Quantity per item: 1 to 3 units
+unit_price: equals product_price at order time
+cogs: equals product_cost
+freight_value: calculated based on product dimensions and category
+
+Freight value calculation formula:
+freight = base_freight + (weight_kg x weight_factor) + (volume_liters x volume_factor)
+
+Base freight by category:
+Electronics: $3
+Clothing: $2
+Home Furniture: $15
+Sports Equipment: $5
+Beauty: $1.50
+Books: $2
+Toys & Games: $2.50
+Automotive: $6
+Health & Wellness: $2
+Kitchen & Dining: $4
+Office Products: $3
+Pet Supplies: $3.50
+
+Weight factor by category:
+Electronics: 0.3
+Clothing: 0.2
+Home Furniture: 1.0
+Sports Equipment: 0.5
+Beauty: 0.15
+Books: 0.25
+Toys & Games: 0.3
+Automotive: 0.6
+Health & Wellness: 0.2
+Kitchen & Dining: 0.4
+Office Products: 0.35
+Pet Supplies: 0.35
+
+Volume factor by category:
+Electronics: 0.1
+Clothing: 0.05
+Home Furniture: 0.5
+Sports Equipment: 0.2
+Beauty: 0.05
+Books: 0.05
+Toys & Games: 0.08
+Automotive: 0.25
+Health & Wellness: 0.08
+Kitchen & Dining: 0.15
+Office Products: 0.12
+Pet Supplies: 0.12
+
+Final freight value has a random variation of +/-15% and a minimum of $2.
+
+Discount logic:
+Discounts only allowed if order has coupon_code
+20-30% of items in coupon orders have discounts
+Discount range: 5% to 40%
+If no coupon, discount_value = 0 and discount_pct = 0
+
+return_flag: initially False, updated later for returned orders
+
+Output columns:
+order_item_id (PK), order_id (FK), product_id (FK), seller_id (FK), quantity, unit_price, freight_value, cogs, discount_value, discount_pct, return_flag
+
+## TABLE 10: PAYMENTS LOGIC
+
+Purpose: Record payment information linked to orders.
+
+Logic:
+- One payment record per order
+- payment_date: within 0-48 hours of order_purchase_timestamp
+
+Payment type distribution:
+Card: 50%
+PayPal: 20%
+COD (Cash on Delivery): 20%
+Other: 10%
+
+Payment status mapping:
+If order_status is delivered or shipped: payment_status = 'success'
+If order_status is canceled: payment_status = 'failed'
+If order_status is returned: payment_status randomly 'success' (40%) or 'refunded' (60%)
+
+Payment value calculation:
+payment_value = (unit_price x quantity) + freight_value - discount_value
+
+Output columns:
+payment_id (PK), order_id (FK), payment_type, payment_value, payment_status, payment_date
+
+## TABLE 11: DELIVERY LOGIC
+
+Purpose: Record shipping and delivery information with no NULL dates.
+
+Logic:
+- One delivery record per order
+- All dates are populated (no NULLs) - estimated dates are used for non-delivered orders
+
+Timeline:
+order_approved_at -> +1-3 days -> order_delivered_carrier_date
+order_delivered_carrier_date -> +5-14 days -> order_estimated_delivery_date
+order_delivered_carrier_date -> +2-9 days -> order_delivered_customer_date (for delivered orders)
+
+Shipping providers by region:
+North America: FedEx, UPS, USPS
+Europe: DHL, local carrier
+South America, Africa, Oceania: local carrier
+
+Delivery status by order status:
+For delivered orders: on_time (delay <= 0 days), late (delay 1-3 days), very_late (delay > 3 days)
+For shipped orders: estimated_on_time, estimated_late, estimated_very_late
+For canceled orders: canceled
+For returned orders: returned_on_time, returned_late, returned_very_late
+
+delay_days calculation:
+delay_days = order_delivered_customer_date - order_estimated_delivery_date
+
+Output columns:
+order_id (PK, FK), order_delivered_carrier_date, order_delivered_customer_date, order_estimated_delivery_date, shipping_provider, delay_days, delivery_status
+
+## TABLE 12: REVIEWS LOGIC
+
+Purpose: Record customer reviews for delivered orders.
+
+Logic:
+- Only delivered orders can have reviews
+- 60-70% of delivered orders receive reviews (approximately 5,200 reviews)
+- review_date = order_delivered_customer_date + 2 to 14 days
+
+Review score distribution:
+5 stars: 35%
+4 stars: 35%
+3 stars: 15%
+2 stars: 10%
+1 star: 5%
+
+Sentiment mapping:
+Score 4-5: positive
+Score 3: neutral
+Score 1-2: negative
+
+Review type:
+Text: 50% of reviews (has comment title and message)
+Rating_only: 50% of reviews (only score, no text)
+
+Review messages: Predefined pools of realistic review texts
+Positive reviews pool: 12 messages
+Neutral reviews pool: 9 messages
+Negative reviews pool: 9 messages
+
+is_verified_purchase: always True
+
+Output columns:
+review_id (PK), order_id (FK), review_score, review_comment_title, review_comment_message, review_creation_date, review_type, review_sentiment, is_verified_purchase
+
+## GLOBAL BUSINESS RULES
+
+Order per customer rule:
+60% of customers have exactly 1 order
+25% of customers have 2-3 orders
+15% of customers have 4 or more orders
+
+Product skew rule:
+20% of products generate 80% of total sales
+
+Seller logic rule:
+20% of sellers (Gold tier) generate 70% of total revenue
+
+Coupon and discount rule:
+15% of orders have coupon codes
+If coupon exists, at least one item must have discount
+If no coupon, no discounts allowed
+
+Return rule:
+Returns only allowed for returned orders
+60% full return (all items in order returned)
+40% partial return (only some items returned)
+
+VIP customer rule:
+Top 5% of customers (VIP segment) generate 30% of total revenue
+
+Seasonality rule:
+Q4 (October-December): 35% of orders
+Q1 (January-March): 20% of orders
+Q2 (April-June): 20% of orders
+Q3 (July-September): 25% of orders
+
+Time behavior rule:
+Peak ordering hours: 7 PM to 11 PM
+Weekends have 20% higher order volume
+Holidays have 35% higher order volume
+
+Shipping provider by region rule:
+North America: FedEx, UPS, USPS
+Europe: DHL and local carriers
+South America, Africa, Oceania: local carriers
+
+## INTEGRITY RULES
+
+No orphan records: All foreign keys must have valid references
+Payment status must match order status
+return_flag can only be true for returned orders
+Seller must sell the product in order items
+Reviews only for delivered orders
+signup_date must be before first order
+order_approved_at must be after order_purchase_timestamp
+order_delivered_carrier_date must be after order_approved_at
+order_delivered_customer_date must be after order_delivered_carrier_date for delivered orders
+review_creation_date must be after order_delivered_customer_date
+
+## FULL RELATIONSHIP CHAIN
+
+Customers -> Location
+Sellers -> Location
+Orders -> Customers
+Order Items -> Orders
+Order Items -> Products
+Order Items -> Sellers
+Products -> Category
+Products -> Subcategory
+Subcategory -> Category
+Orders -> Payments
+Orders -> Delivery
+Orders -> Reviews
+
+## FINAL STATISTICS SUMMARY
+
+Table Name: Number of Rows
+date_dimension: 1,550
+location: 150
+category: 12
+subcategory: 72
+products: 400
+customers: 5,000
+sellers: 150
+orders: 10,000
+order_items: approximately 20,000
+payments: 10,000
+delivery: 10,000
+reviews: approximately 5,200
+
+All constraints are satisfied with zero exceptions. The dataset is ready for Power BI, SQL analytics, and data warehouse modeling.

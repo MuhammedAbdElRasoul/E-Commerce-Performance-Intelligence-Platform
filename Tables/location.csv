@@ -1,0 +1,121 @@
+location_id,country,state,city,zip_code,region,timezone
+1,USA,California,New York,58457,North America,America/New_York
+2,USA,Texas,Los Angeles,91300,North America,America/New_York
+3,USA,Florida,Chicago,02269,North America,America/New_York
+4,USA,New York,Houston,24938,North America,America/New_York
+5,USA,Illinois,Phoenix,77306,North America,America/New_York
+6,USA,California,Philadelphia,82546,North America,America/New_York
+7,USA,Texas,San Antonio,95089,North America,America/New_York
+8,USA,Florida,San Diego,20032,North America,America/New_York
+9,USA,New York,Dallas,63257,North America,America/New_York
+10,USA,Illinois,Austin,85668,North America,America/New_York
+11,Canada,Ontario,Toronto,80369,North America,America/Toronto
+12,Canada,Quebec,Vancouver,14346,North America,America/Toronto
+13,Canada,British Columbia,Montreal,88021,North America,America/Toronto
+14,Canada,Alberta,Calgary,98655,North America,America/Toronto
+15,Canada,Ontario,Edmonton,63334,North America,America/Toronto
+16,Canada,Quebec,Ottawa,54860,North America,America/Toronto
+17,Canada,British Columbia,Quebec City,39428,North America,America/Toronto
+18,Canada,Alberta,Winnipeg,45552,North America,America/Toronto
+19,Canada,Ontario,Hamilton,75678,North America,America/Toronto
+20,Canada,Quebec,Mississauga,93970,North America,America/Toronto
+21,Brazil,São Paulo,São Paulo,30550,South America,America/Sao_Paulo
+22,Brazil,Rio de Janeiro,Rio de Janeiro,07542,South America,America/Sao_Paulo
+23,Brazil,Minas Gerais,Brasília,35825,South America,America/Sao_Paulo
+24,Brazil,São Paulo,Salvador,22145,South America,America/Sao_Paulo
+25,Brazil,Rio de Janeiro,Fortaleza,94633,South America,America/Sao_Paulo
+26,Brazil,Minas Gerais,Belo Horizonte,41470,South America,America/Sao_Paulo
+27,Brazil,São Paulo,Manaus,34421,South America,America/Sao_Paulo
+28,Brazil,Rio de Janeiro,Curitiba,32654,South America,America/Sao_Paulo
+29,Brazil,Minas Gerais,Recife,16494,South America,America/Sao_Paulo
+30,Brazil,São Paulo,Porto Alegre,89941,South America,America/Sao_Paulo
+31,Argentina,Buenos Aires,Buenos Aires,10556,South America,America/Argentina/Buenos_Aires
+32,Argentina,Córdoba,Córdoba,64214,South America,America/Argentina/Buenos_Aires
+33,Argentina,Santa Fe,Rosario,44545,South America,America/Argentina/Buenos_Aires
+34,Argentina,Buenos Aires,Mendoza,68198,South America,America/Argentina/Buenos_Aires
+35,Argentina,Córdoba,La Plata,92354,South America,America/Argentina/Buenos_Aires
+36,Argentina,Santa Fe,Tucumán,95508,South America,America/Argentina/Buenos_Aires
+37,Argentina,Buenos Aires,Mar del Plata,26318,South America,America/Argentina/Buenos_Aires
+38,Argentina,Córdoba,Salta,64535,South America,America/Argentina/Buenos_Aires
+39,Argentina,Santa Fe,Santa Fe,71786,South America,America/Argentina/Buenos_Aires
+40,Argentina,Buenos Aires,San Juan,97999,South America,America/Argentina/Buenos_Aires
+41,United Kingdom,England,London,82254,Europe,Europe/London
+42,United Kingdom,Scotland,Manchester,91260,Europe,Europe/London
+43,United Kingdom,Wales,Birmingham,52529,Europe,Europe/London
+44,United Kingdom,England,Glasgow,57918,Europe,Europe/London
+45,United Kingdom,Scotland,Liverpool,47886,Europe,Europe/London
+46,United Kingdom,Wales,Bristol,89441,Europe,Europe/London
+47,United Kingdom,England,Sheffield,00885,Europe,Europe/London
+48,United Kingdom,Scotland,Leeds,87091,Europe,Europe/London
+49,United Kingdom,Wales,Edinburgh,49641,Europe,Europe/London
+50,United Kingdom,England,Leicester,95142,Europe,Europe/London
+51,Germany,Bavaria,Berlin,76072,Europe,Europe/Berlin
+52,Germany,North Rhine-Westphalia,Munich,75708,Europe,Europe/Berlin
+53,Germany,Baden-Württemberg,Hamburg,00635,Europe,Europe/Berlin
+54,Germany,Bavaria,Cologne,16485,Europe,Europe/Berlin
+55,Germany,North Rhine-Westphalia,Frankfurt,15683,Europe,Europe/Berlin
+56,Germany,Baden-Württemberg,Stuttgart,72016,Europe,Europe/Berlin
+57,Germany,Bavaria,Düsseldorf,40857,Europe,Europe/Berlin
+58,Germany,North Rhine-Westphalia,Leipzig,67659,Europe,Europe/Berlin
+59,Germany,Baden-Württemberg,Dresden,60072,Europe,Europe/Berlin
+60,Germany,Bavaria,Hanover,22429,Europe,Europe/Berlin
+61,France,Île-de-France,Paris,23165,Europe,Europe/Paris
+62,France,Provence-Alpes-Côte d'Azur,Marseille,84407,Europe,Europe/Paris
+63,France,Auvergne-Rhône-Alpes,Lyon,50035,Europe,Europe/Paris
+64,France,Île-de-France,Toulouse,39541,Europe,Europe/Paris
+65,France,Provence-Alpes-Côte d'Azur,Nice,07014,Europe,Europe/Paris
+66,France,Auvergne-Rhône-Alpes,Nantes,57909,Europe,Europe/Paris
+67,France,Île-de-France,Strasbourg,60091,Europe,Europe/Paris
+68,France,Provence-Alpes-Côte d'Azur,Montpellier,94785,Europe,Europe/Paris
+69,France,Auvergne-Rhône-Alpes,Bordeaux,92033,Europe,Europe/Paris
+70,France,Île-de-France,Lille,52756,Europe,Europe/Paris
+71,Italy,Lombardy,Rome,95432,Europe,Europe/Rome
+72,Italy,Lazio,Milan,02720,Europe,Europe/Rome
+73,Italy,Campania,Naples,72439,Europe,Europe/Rome
+74,Italy,Lombardy,Turin,10840,Europe,Europe/Rome
+75,Italy,Lazio,Florence,98646,Europe,Europe/Rome
+76,Italy,Campania,Venice,80041,Europe,Europe/Rome
+77,Italy,Lombardy,Bologna,10120,Europe,Europe/Rome
+78,Italy,Lazio,Genoa,20304,Europe,Europe/Rome
+79,Italy,Campania,Palermo,81152,Europe,Europe/Rome
+80,Italy,Lombardy,Bari,52991,Europe,Europe/Rome
+81,Australia,New South Wales,Sydney,39568,Oceania,Australia/Sydney
+82,Australia,Victoria,Melbourne,75414,Oceania,Australia/Sydney
+83,Australia,Queensland,Brisbane,87752,Oceania,Australia/Sydney
+84,Australia,New South Wales,Perth,97066,Oceania,Australia/Sydney
+85,Australia,Victoria,Adelaide,82915,Oceania,Australia/Sydney
+86,Australia,Queensland,Gold Coast,53610,Oceania,Australia/Sydney
+87,Australia,New South Wales,Newcastle,22786,Oceania,Australia/Sydney
+88,Australia,Victoria,Canberra,71975,Oceania,Australia/Sydney
+89,Australia,Queensland,Wollongong,18551,Oceania,Australia/Sydney
+90,Australia,New South Wales,Hobart,81652,Oceania,Australia/Sydney
+91,New Zealand,Auckland,Auckland,58968,Oceania,Pacific/Auckland
+92,New Zealand,Wellington,Wellington,01075,Oceania,Pacific/Auckland
+93,New Zealand,Canterbury,Christchurch,00970,Oceania,Pacific/Auckland
+94,New Zealand,Auckland,Hamilton,96688,Oceania,Pacific/Auckland
+95,New Zealand,Wellington,Tauranga,05989,Oceania,Pacific/Auckland
+96,New Zealand,Canterbury,Dunedin,55032,Oceania,Pacific/Auckland
+97,New Zealand,Auckland,Palmerston North,83240,Oceania,Pacific/Auckland
+98,New Zealand,Wellington,Napier,72572,Oceania,Pacific/Auckland
+99,New Zealand,Canterbury,Hibiscus Coast,56154,Oceania,Pacific/Auckland
+100,New Zealand,Auckland,New Plymouth,31855,Oceania,Pacific/Auckland
+101,South Africa,Gauteng,Johannesburg,16084,Africa,Africa/Johannesburg
+102,South Africa,Western Cape,Cape Town,49424,Africa,Africa/Johannesburg
+103,South Africa,KwaZulu-Natal,Durban,25743,Africa,Africa/Johannesburg
+104,South Africa,Gauteng,Pretoria,92641,Africa,Africa/Johannesburg
+105,South Africa,Western Cape,Port Elizabeth,14010,Africa,Africa/Johannesburg
+106,South Africa,KwaZulu-Natal,Bloemfontein,43765,Africa,Africa/Johannesburg
+107,South Africa,Gauteng,East London,99873,Africa,Africa/Johannesburg
+108,South Africa,Western Cape,Polokwane,26649,Africa,Africa/Johannesburg
+109,South Africa,KwaZulu-Natal,Nelspruit,79181,Africa,Africa/Johannesburg
+110,South Africa,Gauteng,Kimberley,73629,Africa,Africa/Johannesburg
+111,Nigeria,Lagos,Lagos,54415,Africa,Africa/Lagos
+112,Nigeria,Abuja,Abuja,20174,Africa,Africa/Lagos
+113,Nigeria,Rivers,Kano,69038,Africa,Africa/Lagos
+114,Nigeria,Lagos,Ibadan,46855,Africa,Africa/Lagos
+115,Nigeria,Abuja,Port Harcourt,17326,Africa,Africa/Lagos
+116,Nigeria,Rivers,Benin City,02994,Africa,Africa/Lagos
+117,Nigeria,Lagos,Kaduna,67951,Africa,Africa/Lagos
+118,Nigeria,Abuja,Enugu,34655,Africa,Africa/Lagos
+119,Nigeria,Rivers,Onitsha,06887,Africa,Africa/Lagos
+120,Nigeria,Lagos,Aba,34592,Africa,Africa/Lagos

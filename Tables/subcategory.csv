@@ -1,0 +1,73 @@
+subcategory_id,subcategory_name,category_id
+1,Smartphones,1
+2,Laptops,1
+3,Headphones,1
+4,Smartwatches,1
+5,Tablets,1
+6,Cameras,1
+7,Running Shoes,2
+8,T-Shirts,2
+9,Jeans,2
+10,Jackets,2
+11,Dresses,2
+12,Sneakers,2
+13,Office Chairs,3
+14,Sofas,3
+15,Bed Frames,3
+16,Dining Tables,3
+17,Bookshelves,3
+18,Desks,3
+19,Yoga Mats,4
+20,Dumbbells,4
+21,Treadmills,4
+22,Basketballs,4
+23,Soccer Balls,4
+24,Tennis Rackets,4
+25,Shampoos,5
+26,Face Creams,5
+27,Makeup Kits,5
+28,Perfumes,5
+29,Hair Dryers,5
+30,Electric Shavers,5
+31,Fiction,6
+32,Non-Fiction,6
+33,Children Books,6
+34,Textbooks,6
+35,Cookbooks,6
+36,Biographies,6
+37,Action Figures,7
+38,Board Games,7
+39,Lego Sets,7
+40,Dolls,7
+41,Puzzles,7
+42,Remote Control Cars,7
+43,Car Covers,8
+44,Floor Mats,8
+45,Dash Cams,8
+46,Car Batteries,8
+47,Tire Inflators,8
+48,Seat Covers,8
+49,Vitamins,9
+50,Protein Powders,9
+51,Massage Guns,9
+52,Blood Pressure Monitors,9
+53,Essential Oils,9
+54,Fitness Trackers,9
+55,Blenders,10
+56,Air Fryers,10
+57,Knife Sets,10
+58,Cookware Sets,10
+59,Coffee Makers,10
+60,Dinnerware,10
+61,Printers,11
+62,Paper Shredders,11
+63,Desk Lamps,11
+64,Notebooks,11
+65,Pens,11
+66,Staplers,11
+67,Dog Food,12
+68,Cat Beds,12
+69,Leashes,12
+70,Pet Carriers,12
+71,Aquarium Filters,12
+72,Bird Cages,12

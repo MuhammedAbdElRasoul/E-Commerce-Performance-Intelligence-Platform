@@ -1,0 +1,401 @@
+product_id,product_name,category_id,subcategory_id,product_brand,product_weight_g,product_length_cm,product_height_cm,product_width_cm,product_cost,product_price,product_status,product_availability_status,product_season,product_launch_date,is_returnable
+1,iPhone 15 Pro,1,1,Apple,519,28.5,2.3,9.9,557.52,861.98,active,in_stock,all_year,2022-03-04,True
+2,iPhone 15 Pro 2024,1,1,Apple,2332,15.8,6.1,17.0,364.64,483.0,active,out_of_stock,all_year,2020-09-23,True
+3,OnePlus 12 Pro,1,1,OnePlus,518,16.9,7.9,9.3,119.56,137.3,active,in_stock,all_year,2023-05-02,True
+4,OnePlus 12 Plus,1,1,OnePlus,1300,13.1,1.7,23.4,672.05,947.09,active,in_stock,all_year,2021-03-03,True
+5,iPhone 15 Pro Elite,1,1,Apple,1053,15.7,1.7,10.8,699.86,902.86,active,out_of_stock,all_year,2024-12-30,True
+6,Google Pixel 8 Pro,1,1,Google,392,15.2,9.4,10.3,506.85,600.91,active,in_stock,all_year,2023-09-01,False
+7,HP Spectre x360 Elite,1,2,HP,329,27.2,3.9,9.4,221.79,247.53,active,in_stock,all_year,2022-02-03,True
+8,HP Spectre x360 2024,1,2,HP,1979,26.4,9.2,12.9,157.15,183.84,active,in_stock,all_year,2024-07-22,False
+9,Lenovo ThinkPad X1 Pro,1,2,Lenovo,472,15.5,5.6,25.0,616.84,944.11,active,in_stock,all_year,2023-07-29,False
+10,MacBook Pro Max,1,2,Apple,2366,19.5,5.8,24.9,695.58,769.13,active,in_stock,all_year,2020-04-13,False
+11,HP Spectre x360,1,2,HP,1178,17.3,1.0,8.2,778.92,1153.57,active,in_stock,all_year,2023-09-29,False
+12,Dell XPS 15 2024,1,2,Dell,2272,19.3,9.6,8.2,738.87,1034.03,active,in_stock,all_year,2021-03-07,False
+13,AirPods Pro 2 2024,1,3,Apple,450,11.4,9.5,22.6,598.93,903.19,inactive,discontinued,all_year,2020-08-19,True
+14,Bose QC45 Elite,1,3,Bose,1833,21.9,3.4,16.0,773.27,1209.75,active,in_stock,all_year,2023-02-22,False
+15,Sennheiser Momentum 4 Elite,1,3,Sennheiser,595,26.2,5.7,13.8,235.93,267.08,active,in_stock,all_year,2021-01-03,True
+16,Sony WH-1000XM5,1,3,Sony,228,27.7,1.6,6.2,694.73,788.82,active,in_stock,all_year,2023-06-29,True
+17,Bose QC45 Elite,1,3,Bose,2037,33.4,5.3,16.4,655.62,783.6,active,in_stock,all_year,2024-04-09,False
+18,Sennheiser Momentum 4 Max,1,3,Sennheiser,503,31.6,6.9,6.1,95.46,139.76,active,in_stock,all_year,2020-04-29,True
+19,Apple Watch Series 9 Plus,1,4,Apple,1123,21.2,3.5,13.4,705.86,803.05,active,out_of_stock,all_year,2020-01-13,True
+20,Apple Watch Series 9 Elite,1,4,Apple,1068,35.0,9.7,21.7,174.73,234.63,active,in_stock,all_year,2022-10-03,True
+21,Apple Watch Series 9 Max,1,4,Apple,1963,10.1,9.3,12.8,263.94,382.26,active,out_of_stock,all_year,2022-05-19,False
+22,Apple Watch Series 9 2024,1,4,Apple,2320,17.4,6.2,24.4,95.72,120.3,active,in_stock,all_year,2020-07-11,True
+23,Apple Watch Series 9 Plus,1,4,Apple,1063,12.0,6.4,8.7,352.83,554.22,active,in_stock,all_year,2023-02-09,True
+24,Garmin Fenix 7,1,4,Garmin,1168,20.5,5.7,16.7,203.19,296.27,active,in_stock,all_year,2020-11-26,False
+25,Samsung Galaxy Tab S9 Pro,1,5,Samsung,2406,33.2,1.1,23.7,797.07,905.97,active,in_stock,all_year,2021-05-21,False
+26,iPad Pro 2024,1,5,Apple,1339,19.2,8.5,8.2,508.76,810.77,active,in_stock,all_year,2024-04-07,False
+27,Microsoft Surface Pro,1,5,Microsoft,538,33.5,2.0,7.7,606.81,714.65,active,in_stock,all_year,2020-07-12,False
+28,iPad Pro Elite,1,5,Apple,308,25.9,5.4,10.3,119.22,156.39,active,in_stock,all_year,2020-07-12,True
+29,Microsoft Surface Pro Pro,1,5,Microsoft,2397,14.0,7.4,13.8,57.25,65.13,active,out_of_stock,all_year,2020-07-20,True
+30,Samsung Galaxy Tab S9 Plus,1,5,Samsung,1593,23.8,1.4,13.6,724.24,1084.96,active,out_of_stock,all_year,2021-09-12,True
+31,Nikon Z8 2024,1,6,Nikon,1764,26.7,6.0,12.1,780.38,1150.86,active,in_stock,all_year,2021-06-09,True
+32,Canon EOS R5 Max,1,6,Canon,1786,10.6,4.0,19.7,651.68,998.39,active,in_stock,all_year,2022-12-11,True
+33,Sony Alpha A7 IV X,1,6,Sony,1985,11.0,2.8,14.4,312.24,471.57,active,in_stock,all_year,2023-09-12,True
+34,Sony Alpha A7 IV Pro,1,6,Sony,1538,17.0,8.0,6.4,531.11,690.36,inactive,discontinued,all_year,2024-09-13,False
+35,Canon EOS R5,1,6,Canon,1187,31.9,6.2,10.2,78.69,110.03,active,out_of_stock,all_year,2023-11-17,False
+36,Nikon Z8 Plus,1,6,Nikon,281,12.9,2.7,23.0,581.59,640.24,active,in_stock,all_year,2020-02-16,True
+37,New Balance 1080 Max,2,7,New Balance,471,54.9,2.3,49.9,82.3,95.66,active,in_stock,all_year,2022-09-27,False
+38,New Balance 1080 Max,2,7,New Balance,538,98.8,1.8,46.6,83.86,130.1,active,in_stock,all_year,2022-02-01,True
+39,New Balance 1080 Pro,2,7,New Balance,479,64.7,3.4,53.6,60.08,79.37,active,in_stock,all_year,2024-10-18,True
+40,Nike Air Zoom Pegasus Pro,2,7,Nike,390,86.1,2.3,49.0,83.35,101.05,active,in_stock,all_year,2023-09-13,True
+41,Puma RS-X Plus,2,7,Puma,794,109.5,2.7,32.2,72.48,105.76,active,in_stock,all_year,2021-03-16,True
+42,Nike Air Zoom Pegasus X,2,7,Nike,374,110.2,4.1,56.6,27.7,43.74,active,in_stock,all_year,2024-05-20,True
+43,Nike Cotton T-Shirt Max,2,8,Nike,722,59.3,3.1,43.9,74.69,117.64,active,in_stock,summer,2022-06-27,False
+44,Zara Basic Tee 2024,2,8,Zara,403,102.1,2.0,44.2,102.06,126.42,active,in_stock,summer,2021-04-20,True
+45,H&M Basic T-Shirt Max,2,8,H&M,477,55.4,2.1,38.6,108.02,123.17,active,in_stock,summer,2021-02-09,True
+46,Adidas Essentials Tee,2,8,Adidas,213,79.0,2.9,39.9,31.17,40.83,active,in_stock,summer,2024-09-08,True
+47,Zara Basic Tee Max,2,8,Zara,579,50.4,4.0,40.6,68.28,100.19,active,out_of_stock,summer,2020-11-07,False
+48,Adidas Essentials Tee Pro,2,8,Adidas,564,80.5,2.3,30.9,89.11,135.47,active,out_of_stock,summer,2022-11-18,True
+49,Uniqlo Jeans Plus,2,9,Uniqlo,288,89.5,3.6,30.8,105.09,125.15,active,in_stock,all_year,2020-02-12,False
+50,Diesel Jeans Pro,2,9,Diesel,581,103.3,4.0,41.4,36.25,41.36,active,in_stock,all_year,2021-11-16,False
+51,Wrangler Jeans Elite,2,9,Wrangler,181,54.8,1.2,58.7,114.36,137.2,active,in_stock,all_year,2021-06-09,True
+52,Uniqlo Jeans Elite,2,9,Uniqlo,412,58.0,2.9,58.4,93.89,111.16,active,in_stock,all_year,2020-09-09,True
+53,Wrangler Jeans Pro,2,9,Wrangler,534,57.6,2.2,30.8,52.43,76.42,active,in_stock,all_year,2023-02-17,True
+54,Levi's 501 Elite,2,9,Levi's,273,104.1,3.4,55.5,97.18,134.4,active,in_stock,all_year,2023-03-20,False
+55,The North Face Jacket Plus,2,10,The North Face,651,95.3,2.7,30.4,19.82,31.32,active,out_of_stock,winter,2022-12-18,True
+56,Zara Puffer Jacket 2024,2,10,Zara,701,101.4,2.1,59.0,94.76,126.26,active,in_stock,winter,2022-10-22,False
+57,Columbia Winter Jacket X,2,10,Columbia,625,115.4,2.8,38.4,71.82,103.0,active,in_stock,winter,2021-03-30,False
+58,Columbia Winter Jacket Max,2,10,Columbia,760,64.8,2.4,53.9,86.53,107.14,active,out_of_stock,winter,2020-09-24,True
+59,Columbia Winter Jacket Elite,2,10,Columbia,637,78.4,2.0,46.7,80.34,108.09,active,in_stock,winter,2024-02-20,True
+60,Zara Puffer Jacket Elite,2,10,Zara,716,67.0,2.5,49.9,67.46,88.56,active,in_stock,winter,2022-11-17,False
+61,Mango Dress Pro,2,11,Mango,272,67.6,1.8,33.6,91.2,143.68,active,in_stock,summer,2021-03-11,False
+62,Mango Dress Elite,2,11,Mango,252,91.3,3.4,52.8,101.25,126.37,active,in_stock,summer,2024-03-26,True
+63,Mango Dress,2,11,Mango,279,118.2,3.8,46.6,79.44,117.28,active,in_stock,summer,2021-03-29,False
+64,Forever21 Dress Max,2,11,Forever21,639,80.8,1.2,35.5,20.78,23.54,active,in_stock,summer,2021-05-12,True
+65,H&M Cotton Dress 2024,2,11,H&M,404,106.8,1.3,58.5,21.27,31.53,active,out_of_stock,summer,2020-12-29,True
+66,Forever21 Dress Max,2,11,Forever21,589,113.6,3.4,38.9,42.2,59.52,active,in_stock,summer,2024-12-08,True
+67,Adidas Stan Smith Pro,2,12,Adidas,226,96.2,1.7,34.7,25.53,33.3,active,in_stock,all_year,2021-12-11,True
+68,Adidas Stan Smith Pro,2,12,Adidas,389,99.5,2.8,51.1,111.48,166.54,active,in_stock,all_year,2024-12-14,True
+69,Converse Chuck Taylor,2,12,Converse,295,88.1,4.6,49.4,16.0,18.93,active,in_stock,all_year,2020-05-16,False
+70,Converse Chuck Taylor,2,12,Converse,428,82.8,2.6,39.1,64.05,86.27,active,in_stock,all_year,2023-01-08,False
+71,Puma Suede Plus,2,12,Puma,739,67.5,4.8,32.7,73.76,81.9,active,out_of_stock,all_year,2024-05-28,True
+72,Adidas Stan Smith Max,2,12,Adidas,749,86.3,2.1,43.3,56.82,85.63,inactive,discontinued,all_year,2024-08-29,False
+73,Secretlab Titan Max,3,13,Secretlab,26614,93.3,88.6,110.4,676.3,911.47,active,in_stock,all_year,2020-09-07,True
+74,HON Ignition,3,13,HON,31488,90.3,97.6,68.8,1310.87,1982.64,active,out_of_stock,all_year,2022-03-09,False
+75,HON Ignition,3,13,HON,45986,70.0,80.5,73.4,718.86,809.3,active,in_stock,all_year,2023-10-21,False
+76,HON Ignition Elite,3,13,HON,20682,117.6,70.4,33.5,1093.7,1373.0,active,in_stock,all_year,2023-08-02,True
+77,Herman Miller Aeron Max,3,13,Herman Miller,24127,191.5,32.3,107.7,812.42,1004.73,active,out_of_stock,all_year,2022-12-05,True
+78,HON Ignition Plus,3,13,HON,13946,63.1,68.0,52.9,1309.64,1621.5,active,in_stock,all_year,2021-12-13,False
+79,IKEA KIVIK Pro,3,14,IKEA,48249,156.2,66.4,130.5,785.5,922.41,active,in_stock,all_year,2023-05-10,False
+80,Burrow Nomad Pro,3,14,Burrow,30098,179.1,39.1,147.7,426.99,635.26,active,in_stock,all_year,2021-07-26,False
+81,Burrow Nomad Elite,3,14,Burrow,7426,166.8,32.2,108.2,276.74,437.99,active,in_stock,all_year,2023-07-19,False
+82,IKEA KIVIK Plus,3,14,IKEA,47911,185.7,31.5,31.8,1457.94,1658.28,active,in_stock,all_year,2020-05-26,False
+83,IKEA KIVIK X,3,14,IKEA,25752,92.6,62.7,110.9,977.52,1509.02,active,in_stock,all_year,2023-12-04,True
+84,Ashley Furniture Sofa Elite,3,14,Ashley,10923,149.5,38.2,64.5,707.56,813.14,active,out_of_stock,all_year,2020-12-13,False
+85,Zinus Bed Frame Elite,3,15,Zinus,8677,87.9,45.9,33.5,510.71,657.5,active,in_stock,all_year,2020-08-14,True
+86,Zinus Bed Frame 2024,3,15,Zinus,20783,52.6,69.6,134.5,796.73,1108.71,active,in_stock,all_year,2023-01-14,False
+87,Tempur-Pedic Bed Elite,3,15,Tempur-Pedic,49407,41.5,92.1,126.6,865.24,983.72,active,out_of_stock,all_year,2021-04-04,False
+88,Casper Bed Elite,3,15,Casper,30211,80.0,35.9,131.4,1294.67,1493.18,active,in_stock,all_year,2020-10-12,False
+89,Tempur-Pedic Bed,3,15,Tempur-Pedic,42088,196.5,42.0,109.0,1311.09,1952.42,inactive,discontinued,all_year,2022-07-11,False
+90,Tempur-Pedic Bed X,3,15,Tempur-Pedic,46721,167.8,48.2,102.8,366.18,448.69,active,out_of_stock,all_year,2021-04-22,True
+91,Pottery Barn Table,3,16,Pottery Barn,33889,184.5,44.7,107.6,146.71,188.15,active,out_of_stock,all_year,2021-05-01,False
+92,Pottery Barn Table Max,3,16,Pottery Barn,28976,68.1,63.2,45.9,843.19,1312.63,active,in_stock,all_year,2022-01-29,False
+93,West Elm Dining Table Elite,3,16,West Elm,9934,179.3,57.5,126.5,297.06,470.32,active,in_stock,all_year,2024-09-29,False
+94,Pottery Barn Table Pro,3,16,Pottery Barn,13099,54.4,41.2,77.3,736.7,1058.21,active,in_stock,all_year,2020-04-05,False
+95,IKEA MÖRBYLÅNGA Elite,3,16,IKEA,41792,77.4,90.7,33.0,559.21,785.71,active,in_stock,all_year,2021-06-01,False
+96,Pottery Barn Table Pro,3,16,Pottery Barn,7438,143.9,23.6,44.0,526.11,708.31,active,out_of_stock,all_year,2024-08-11,True
+97,Sauder Bookshelf Max,3,17,Sauder,40402,99.4,75.7,143.9,686.78,1010.35,active,in_stock,all_year,2021-06-18,True
+98,Sauder Bookshelf Plus,3,17,Sauder,29283,105.3,22.6,144.2,404.18,534.47,active,in_stock,all_year,2020-11-15,False
+99,Wayfair Bookshelf Elite,3,17,Wayfair,13005,97.4,35.2,77.8,1428.62,2160.21,active,in_stock,all_year,2020-12-05,True
+100,IKEA BILLY X,3,17,IKEA,18448,93.4,83.0,148.7,196.05,290.66,active,in_stock,all_year,2020-11-09,True
+101,Sauder Bookshelf X,3,17,Sauder,14482,63.6,20.2,138.1,1482.54,2031.24,active,in_stock,all_year,2024-09-18,True
+102,IKEA BILLY,3,17,IKEA,6034,97.3,67.1,124.6,343.94,387.35,active,in_stock,all_year,2020-06-19,True
+103,Flexispot Standing Desk Max,3,18,Flexispot,38019,164.5,28.7,91.6,410.17,577.34,active,out_of_stock,all_year,2021-08-16,False
+104,Flexispot Standing Desk Elite,3,18,Flexispot,31320,194.2,58.3,37.3,696.78,804.07,active,in_stock,all_year,2021-06-21,True
+105,Flexispot Standing Desk Plus,3,18,Flexispot,43362,63.7,69.9,45.1,867.7,1095.55,inactive,discontinued,all_year,2023-08-09,False
+106,Flexispot Standing Desk Plus,3,18,Flexispot,47907,136.9,76.1,41.9,1011.28,1501.23,active,in_stock,all_year,2022-05-23,False
+107,IKEA BEKANT Max,3,18,IKEA,11231,94.2,53.3,84.4,537.57,675.33,active,out_of_stock,all_year,2023-11-15,False
+108,IKEA BEKANT,3,18,IKEA,29421,173.1,27.7,41.2,1236.48,1704.1,active,in_stock,all_year,2020-02-11,False
+109,Gaiam Yoga Mat,4,19,Gaiam,7129,73.4,47.4,53.7,349.22,510.05,inactive,discontinued,all_year,2022-02-01,False
+110,Manduka PRO Mat,4,19,Manduka,3874,95.1,34.6,20.6,341.2,435.05,active,in_stock,all_year,2024-04-04,False
+111,Gaiam Yoga Mat 2024,4,19,Gaiam,13609,124.9,48.9,52.3,254.36,365.64,active,in_stock,all_year,2020-10-04,False
+112,Lululemon Yoga Mat 2024,4,19,Lululemon,5951,55.5,46.5,48.1,17.35,26.63,active,in_stock,all_year,2024-07-04,True
+113,Gaiam Yoga Mat Elite,4,19,Gaiam,6363,146.3,28.9,14.6,176.64,224.41,active,in_stock,all_year,2020-12-18,True
+114,Lululemon Yoga Mat 2024,4,19,Lululemon,4658,40.5,35.3,40.9,185.6,243.51,active,in_stock,all_year,2024-02-26,True
+115,Amazon Basics Dumbbells,4,20,Amazon,9917,64.9,35.5,15.5,202.35,290.08,active,in_stock,all_year,2024-10-08,True
+116,Bowflex Dumbbells 2024,4,20,Bowflex,4386,59.2,11.2,20.6,126.44,146.67,active,in_stock,all_year,2022-05-28,True
+117,CAP Dumbbells Plus,4,20,CAP,13408,111.5,42.5,35.0,151.35,196.53,active,in_stock,all_year,2021-08-14,False
+118,Bowflex Dumbbells X,4,20,Bowflex,10688,60.7,23.2,31.5,175.81,203.52,active,in_stock,all_year,2021-01-14,False
+119,Amazon Basics Dumbbells Pro,4,20,Amazon,9848,31.5,15.9,52.2,169.17,192.74,active,in_stock,all_year,2022-11-04,True
+120,CAP Dumbbells X,4,20,CAP,8555,41.9,10.1,35.5,89.65,133.41,active,out_of_stock,all_year,2020-02-03,True
+121,NordicTrack Treadmill,4,21,NordicTrack,12655,39.0,32.1,19.9,307.27,349.57,active,in_stock,all_year,2022-08-25,False
+122,Sole Fitness Treadmill X,4,21,Sole,10734,95.3,44.7,44.1,259.59,366.61,active,in_stock,all_year,2024-05-25,True
+123,Peloton Tread,4,21,Peloton,9889,81.0,40.8,41.6,36.63,49.58,active,in_stock,all_year,2021-07-03,True
+124,Peloton Tread X,4,21,Peloton,1679,57.3,49.0,42.2,251.78,340.79,active,in_stock,all_year,2022-01-27,True
+125,Peloton Tread X,4,21,Peloton,8414,94.3,32.2,19.4,73.08,82.65,active,out_of_stock,all_year,2020-12-14,False
+126,Sole Fitness Treadmill,4,21,Sole,7372,85.6,16.1,18.6,396.53,540.09,active,in_stock,all_year,2022-04-09,False
+127,Wilson Basketball Max,4,22,Wilson,10536,120.7,7.4,43.9,264.21,299.34,active,in_stock,all_year,2023-01-10,False
+128,Wilson Basketball Elite,4,22,Wilson,2663,130.7,32.1,58.2,143.34,199.44,active,in_stock,all_year,2021-01-08,False
+129,Spalding Basketball Plus,4,22,Spalding,10742,112.1,30.2,14.2,319.79,481.79,active,out_of_stock,all_year,2021-02-12,True
+130,Nike Basketball Elite,4,22,Nike,3153,75.0,21.3,28.1,381.2,484.45,active,in_stock,all_year,2020-03-03,True
+131,Spalding Basketball,4,22,Spalding,9043,58.5,27.8,49.4,336.52,518.86,active,in_stock,all_year,2020-01-19,True
+132,Nike Basketball Max,4,22,Nike,10435,40.1,36.2,19.0,326.48,386.15,active,in_stock,all_year,2024-10-16,True
+133,Nike Soccer Ball Plus,4,23,Nike,8949,57.0,25.2,47.4,107.08,169.49,active,out_of_stock,all_year,2023-04-30,True
+134,Nike Soccer Ball Elite,4,23,Nike,4816,143.1,25.8,59.2,314.58,425.14,active,in_stock,all_year,2020-06-10,True
+135,Puma Soccer Ball 2024,4,23,Puma,6281,133.5,26.6,12.6,228.5,263.07,active,out_of_stock,all_year,2024-01-30,False
+136,Adidas Soccer Ball X,4,23,Adidas,13815,40.8,28.1,32.5,183.43,288.57,active,in_stock,all_year,2020-04-15,False
+137,Adidas Soccer Ball Max,4,23,Adidas,1537,26.9,15.6,35.1,159.34,177.52,active,out_of_stock,all_year,2023-06-30,False
+138,Adidas Soccer Ball 2024,4,23,Adidas,13816,25.0,26.3,55.9,68.44,99.43,active,in_stock,all_year,2023-07-18,True
+139,Wilson Tennis Racket Pro,4,24,Wilson,10175,48.0,47.3,17.5,218.19,252.14,active,in_stock,all_year,2022-03-19,True
+140,Wilson Tennis Racket Max,4,24,Wilson,13908,103.1,7.8,41.1,363.48,508.28,active,in_stock,all_year,2022-02-27,True
+141,Head Tennis Racket 2024,4,24,Head,9549,57.9,20.9,10.1,175.38,251.18,active,out_of_stock,all_year,2020-05-24,True
+142,Head Tennis Racket Plus,4,24,Head,6597,86.0,29.9,59.4,351.23,394.0,active,in_stock,all_year,2022-02-26,True
+143,Babolat Tennis Racket X,4,24,Babolat,1898,28.8,34.6,22.1,312.03,457.93,active,in_stock,all_year,2020-05-07,False
+144,Head Tennis Racket 2024,4,24,Head,8040,127.9,49.1,44.2,258.22,388.81,active,out_of_stock,all_year,2024-01-26,False
+145,Pantene Shampoo Pro,5,25,Pantene,373,8.0,22.4,12.5,75.0,101.83,inactive,discontinued,all_year,2020-11-09,False
+146,Head & Shoulders,5,25,P&G,98,16.3,10.2,5.3,69.93,88.53,active,in_stock,all_year,2022-04-03,False
+147,Dove Shampoo Max,5,25,Dove,558,18.4,24.4,7.6,56.91,73.05,active,in_stock,all_year,2022-03-11,True
+148,Dove Shampoo Max,5,25,Dove,350,6.2,20.9,10.2,29.09,33.16,active,in_stock,all_year,2020-12-01,False
+149,Pantene Shampoo Elite,5,25,Pantene,411,11.7,18.7,8.4,51.11,67.34,active,out_of_stock,all_year,2020-03-25,True
+150,Pantene Shampoo Elite,5,25,Pantene,213,14.6,20.4,7.4,76.46,89.56,active,out_of_stock,all_year,2024-12-17,True
+151,Olay Face Cream,5,26,Olay,83,8.5,10.3,10.7,50.38,72.52,active,in_stock,all_year,2022-02-03,True
+152,Cetaphil Cream 2024,5,26,Cetaphil,305,12.9,16.9,7.8,77.04,85.74,active,in_stock,all_year,2023-12-16,True
+153,Nivea Cream X,5,26,Nivea,342,8.9,24.9,8.4,57.05,91.24,active,in_stock,all_year,2022-11-18,True
+154,Nivea Cream 2024,5,26,Nivea,377,18.5,4.0,8.3,55.09,80.14,active,in_stock,all_year,2023-07-25,False
+155,Olay Face Cream Elite,5,26,Olay,420,15.6,6.0,11.4,43.16,50.1,active,in_stock,all_year,2020-11-20,False
+156,Olay Face Cream Pro,5,26,Olay,182,13.3,20.5,7.4,50.9,58.18,active,out_of_stock,all_year,2022-07-01,False
+157,Revlon Kit Max,5,27,Revlon,374,16.5,3.7,12.9,53.18,70.46,active,in_stock,all_year,2020-12-15,True
+158,Maybelline Makeup Kit Max,5,27,Maybelline,580,12.5,21.1,13.4,16.48,19.48,active,in_stock,all_year,2023-10-20,False
+159,Revlon Kit Pro,5,27,Revlon,331,17.7,16.6,6.0,14.39,18.01,active,in_stock,all_year,2024-11-28,True
+160,Revlon Kit Plus,5,27,Revlon,395,7.3,18.6,10.9,68.19,94.23,active,in_stock,all_year,2023-12-13,True
+161,Revlon Kit X,5,27,Revlon,476,13.7,19.6,10.8,51.36,57.27,active,in_stock,all_year,2020-01-26,False
+162,L'Oreal Kit 2024,5,27,L'Oreal,124,17.1,8.8,11.2,56.65,66.79,active,in_stock,all_year,2022-12-20,False
+163,Gucci Perfume 2024,5,28,Gucci,403,9.7,18.9,11.6,78.15,91.07,active,in_stock,all_year,2024-01-30,False
+164,Chanel Perfume Max,5,28,Chanel,101,6.8,5.2,8.4,26.77,34.59,active,in_stock,all_year,2024-07-10,True
+165,Dior Perfume Plus,5,28,Dior,577,15.8,5.7,5.3,40.01,61.6,active,in_stock,all_year,2023-07-23,False
+166,Gucci Perfume Max,5,28,Gucci,101,19.5,10.1,5.6,26.1,36.51,active,in_stock,all_year,2021-12-23,False
+167,Gucci Perfume,5,28,Gucci,424,17.7,22.3,8.2,62.29,79.92,active,in_stock,all_year,2021-11-20,True
+168,Dior Perfume Plus,5,28,Dior,336,9.3,12.4,7.6,66.9,94.44,active,in_stock,all_year,2023-05-26,True
+169,Revlon Hair Dryer Pro,5,29,Revlon,197,16.9,23.6,7.1,19.93,27.0,active,in_stock,all_year,2024-09-01,True
+170,Conair Hair Dryer Pro,5,29,Conair,577,17.1,5.4,9.2,15.48,24.24,active,in_stock,all_year,2024-02-18,False
+171,Conair Hair Dryer Pro,5,29,Conair,356,12.6,13.3,9.1,40.62,45.02,active,in_stock,all_year,2021-10-19,False
+172,Conair Hair Dryer Pro,5,29,Conair,77,17.0,17.8,11.7,49.77,61.35,active,out_of_stock,all_year,2020-06-20,True
+173,Conair Hair Dryer,5,29,Conair,439,13.8,16.5,5.0,16.08,23.16,active,out_of_stock,all_year,2021-04-13,True
+174,Dyson Hair Dryer,5,29,Dyson,258,11.6,11.5,8.0,35.78,53.22,active,out_of_stock,all_year,2021-03-07,True
+175,Panasonic Shaver 2024,5,30,Panasonic,539,12.8,25.0,9.7,44.41,55.82,active,out_of_stock,all_year,2023-09-23,False
+176,Panasonic Shaver Pro,5,30,Panasonic,320,15.1,17.7,13.4,50.76,60.72,active,in_stock,all_year,2023-02-27,True
+177,Philips Shaver X,5,30,Philips,374,9.3,18.2,5.5,40.99,56.58,active,in_stock,all_year,2020-04-23,False
+178,Braun Shaver Plus,5,30,Braun,403,15.1,24.5,7.6,76.6,115.08,active,in_stock,all_year,2020-07-11,True
+179,Philips Shaver Max,5,30,Philips,327,14.8,6.9,12.0,74.98,108.58,active,in_stock,all_year,2022-02-19,True
+180,Braun Shaver,5,30,Braun,103,15.0,16.7,9.4,12.51,15.83,active,in_stock,all_year,2023-03-19,True
+181,The Great Gatsby Plus,6,31,Scribner,1101,27.7,3.6,11.9,35.74,47.85,active,out_of_stock,all_year,2022-04-03,False
+182,1984 Elite,6,31,Penguin,437,15.8,3.6,19.2,23.73,34.68,active,out_of_stock,all_year,2024-04-29,True
+183,1984 X,6,31,Penguin,606,17.3,5.0,21.0,32.58,38.87,active,out_of_stock,all_year,2021-02-26,False
+184,The Great Gatsby,6,31,Scribner,543,18.9,4.7,17.2,14.96,23.85,active,in_stock,all_year,2021-05-18,True
+185,To Kill a Mockingbird Max,6,31,HarperCollins,948,18.5,2.3,19.7,21.06,25.87,active,in_stock,all_year,2024-01-03,False
+186,To Kill a Mockingbird Elite,6,31,HarperCollins,1118,24.8,4.4,12.1,19.19,25.21,active,in_stock,all_year,2020-07-14,True
+187,Sapiens 2024,6,32,Harper,592,21.2,1.0,21.2,13.24,19.55,inactive,discontinued,all_year,2022-08-10,False
+188,Educated Elite,6,32,Random House,441,22.4,2.4,13.1,7.17,8.31,active,in_stock,all_year,2020-01-30,False
+189,Educated,6,32,Random House,426,23.3,2.5,21.3,12.67,14.78,active,in_stock,all_year,2024-12-22,False
+190,Becoming Elite,6,32,Crown,880,22.1,3.2,15.6,33.9,50.2,active,in_stock,all_year,2022-05-21,True
+191,Educated Max,6,32,Random House,314,21.9,4.7,14.3,7.16,9.84,active,in_stock,all_year,2022-11-17,True
+192,Sapiens Pro,6,32,Harper,934,26.1,3.7,15.3,25.41,29.11,active,out_of_stock,all_year,2024-08-05,False
+193,Harry Potter Plus,6,33,Scholastic,888,20.4,3.2,16.8,33.24,48.58,active,out_of_stock,all_year,2021-04-24,True
+194,Goodnight Moon,6,33,HarperCollins,261,15.6,1.3,14.1,37.71,42.78,active,in_stock,all_year,2024-04-11,False
+195,Harry Potter X,6,33,Scholastic,1186,16.8,3.9,17.7,19.71,31.47,active,out_of_stock,all_year,2021-04-08,False
+196,The Cat in the Hat,6,33,Random House,869,23.9,3.2,17.9,35.11,40.7,inactive,discontinued,all_year,2024-09-09,False
+197,Goodnight Moon 2024,6,33,HarperCollins,223,24.5,1.0,12.7,39.25,52.26,active,in_stock,all_year,2024-10-10,False
+198,Harry Potter 2024,6,33,Scholastic,1096,21.0,1.8,11.9,30.38,35.13,active,in_stock,all_year,2021-01-27,True
+199,Calculus Textbook 2024,6,34,Pearson,888,15.9,2.8,17.1,29.62,33.3,active,in_stock,all_year,2021-08-28,True
+200,Biology Textbook 2024,6,34,McGraw-Hill,496,24.8,1.6,19.3,13.2,20.57,active,in_stock,all_year,2021-04-29,False
+201,Calculus Textbook Pro,6,34,Pearson,623,26.4,3.1,21.8,15.52,17.55,active,out_of_stock,all_year,2024-08-02,True
+202,Biology Textbook Elite,6,34,McGraw-Hill,1164,20.6,4.9,15.9,27.52,35.52,active,in_stock,all_year,2021-05-21,False
+203,Calculus Textbook Pro,6,34,Pearson,1069,19.9,2.9,19.1,12.89,19.71,active,in_stock,all_year,2020-03-13,True
+204,Biology Textbook Max,6,34,McGraw-Hill,448,27.6,1.5,16.7,13.92,17.61,active,in_stock,all_year,2024-01-15,False
+205,Salt Fat Acid Heat Plus,6,35,Simon & Schuster,889,24.4,2.1,12.3,26.17,29.3,active,out_of_stock,all_year,2020-10-05,True
+206,Joy of Cooking 2024,6,35,Scribner,215,26.3,4.8,14.0,12.41,14.83,active,in_stock,all_year,2022-07-08,False
+207,Salt Fat Acid Heat Elite,6,35,Simon & Schuster,765,22.9,4.7,12.5,16.26,20.19,active,in_stock,all_year,2022-02-28,False
+208,Joy of Cooking Pro,6,35,Scribner,939,21.7,1.4,16.0,21.43,32.57,active,in_stock,all_year,2023-08-19,False
+209,Salt Fat Acid Heat Plus,6,35,Simon & Schuster,766,26.2,1.1,18.9,37.72,52.41,active,in_stock,all_year,2024-06-09,False
+210,Salt Fat Acid Heat Max,6,35,Simon & Schuster,1166,22.4,3.2,12.9,28.97,35.59,active,out_of_stock,all_year,2024-01-23,False
+211,Michelle Obama 2024,6,36,Crown,759,24.5,1.6,14.2,22.09,34.43,active,in_stock,all_year,2024-12-24,True
+212,Elon Musk,6,36,Random House,249,25.9,4.3,10.9,31.75,41.47,active,in_stock,all_year,2022-08-14,True
+213,Steve Jobs 2024,6,36,Simon & Schuster,882,21.6,3.5,14.5,37.69,58.66,active,in_stock,all_year,2022-08-23,False
+214,Steve Jobs,6,36,Simon & Schuster,217,21.9,4.9,13.3,22.58,32.72,active,out_of_stock,all_year,2022-04-29,True
+215,Steve Jobs,6,36,Simon & Schuster,458,21.8,3.5,12.9,33.53,41.36,active,in_stock,all_year,2021-03-25,False
+216,Michelle Obama Plus,6,36,Crown,1047,18.2,2.2,18.4,34.68,49.48,active,out_of_stock,all_year,2021-10-22,True
+217,DC Action Figures Max,7,37,Mattel,2978,25.1,20.9,23.2,23.77,32.09,active,out_of_stock,all_year,2024-07-20,True
+218,Star Wars Figures,7,37,Hasbro,2421,19.2,22.3,36.8,51.75,58.13,active,out_of_stock,all_year,2024-11-09,True
+219,Marvel Action Figures X,7,37,Hasbro,1731,22.6,19.7,38.8,93.46,116.79,active,in_stock,all_year,2021-03-31,False
+220,Star Wars Figures Plus,7,37,Hasbro,2923,23.3,8.5,32.2,74.62,100.77,inactive,discontinued,all_year,2020-04-03,True
+221,Marvel Action Figures Max,7,37,Hasbro,2614,19.3,20.1,10.4,95.85,124.45,active,in_stock,all_year,2024-06-08,False
+222,DC Action Figures Max,7,37,Mattel,860,19.1,14.4,25.7,70.53,100.88,active,in_stock,all_year,2022-12-24,True
+223,Scrabble,7,38,Mattel,2696,13.3,22.8,12.9,22.19,28.73,active,in_stock,all_year,2022-10-31,False
+224,Chess Set Pro,7,38,Spinmaster,1865,40.5,7.2,11.3,49.29,67.89,active,in_stock,all_year,2021-10-19,False
+225,Scrabble,7,38,Mattel,150,33.9,26.6,33.1,34.85,45.09,active,out_of_stock,all_year,2021-11-22,True
+226,Scrabble Plus,7,38,Mattel,1333,16.8,8.5,20.2,32.69,38.34,active,in_stock,all_year,2024-11-11,False
+227,Chess Set X,7,38,Spinmaster,2660,13.1,11.2,16.1,53.61,75.5,active,in_stock,all_year,2023-01-06,True
+228,Chess Set Pro,7,38,Spinmaster,1903,43.7,26.6,20.2,38.8,58.5,active,out_of_stock,all_year,2022-09-08,True
+229,LEGO Technic Pro,7,39,LEGO,827,34.1,17.0,30.2,96.74,153.27,active,in_stock,all_year,2020-02-19,False
+230,LEGO City X,7,39,LEGO,1709,19.7,25.4,20.0,41.58,65.12,active,out_of_stock,all_year,2022-04-14,True
+231,LEGO City X,7,39,LEGO,958,32.0,16.5,38.5,48.34,60.22,active,out_of_stock,all_year,2022-06-12,False
+232,LEGO City Max,7,39,LEGO,731,15.6,11.3,17.7,73.8,110.3,active,out_of_stock,all_year,2022-01-04,False
+233,LEGO City Max,7,39,LEGO,1813,31.4,26.7,37.6,58.02,86.76,active,out_of_stock,all_year,2021-10-27,True
+234,LEGO Creator X,7,39,LEGO,2609,19.9,9.2,29.3,12.08,19.23,active,in_stock,all_year,2024-04-08,False
+235,Baby Alive,7,40,Hasbro,2224,10.4,17.8,16.3,59.34,85.68,active,in_stock,all_year,2023-10-22,False
+236,American Girl Doll Plus,7,40,Mattel,2077,37.6,29.9,12.8,17.62,23.05,inactive,discontinued,all_year,2021-11-05,True
+237,American Girl Doll 2024,7,40,Mattel,2234,23.9,24.6,19.0,52.43,70.16,active,in_stock,all_year,2024-09-04,False
+238,Barbie Doll Pro,7,40,Mattel,1505,11.8,5.6,30.7,67.61,97.26,active,out_of_stock,all_year,2023-03-25,True
+239,American Girl Doll 2024,7,40,Mattel,1992,32.1,15.7,18.6,29.33,38.2,active,in_stock,all_year,2021-07-23,False
+240,Baby Alive,7,40,Hasbro,1859,39.5,16.2,36.3,43.77,63.57,active,out_of_stock,all_year,2020-03-08,True
+241,Ravensburger Puzzle X,7,41,Ravensburger,1974,44.9,13.1,14.0,18.48,26.53,active,out_of_stock,all_year,2024-03-12,False
+242,Melissa & Doug Puzzle Plus,7,41,Melissa & Doug,1975,25.7,13.8,11.7,64.8,97.65,active,in_stock,all_year,2020-04-18,True
+243,Ravensburger Puzzle Pro,7,41,Ravensburger,2940,14.7,9.6,17.8,21.0,27.18,active,in_stock,all_year,2022-03-03,False
+244,Ravensburger Puzzle Max,7,41,Ravensburger,809,35.4,21.1,30.2,59.05,79.41,active,in_stock,all_year,2023-12-05,False
+245,Ravensburger Puzzle X,7,41,Ravensburger,1672,24.4,8.4,8.3,96.67,130.77,active,in_stock,all_year,2024-02-03,False
+246,Melissa & Doug Puzzle Max,7,41,Melissa & Doug,1003,16.7,24.9,26.1,34.87,43.15,active,in_stock,all_year,2024-11-17,False
+247,ARRMA RC Car Elite,7,42,ARRMA,2445,40.9,17.8,23.9,18.51,27.53,active,in_stock,all_year,2021-10-12,True
+248,ARRMA RC Car Max,7,42,ARRMA,2777,31.9,7.6,39.7,77.12,96.31,inactive,discontinued,all_year,2024-10-19,False
+249,Redcat Racing Pro,7,42,Redcat,580,44.5,26.6,10.8,79.36,96.7,active,in_stock,all_year,2024-04-13,False
+250,ARRMA RC Car Plus,7,42,ARRMA,946,35.3,8.5,13.3,82.84,124.49,active,in_stock,all_year,2024-04-29,True
+251,Redcat Racing Elite,7,42,Redcat,2207,21.7,28.8,26.3,98.66,142.04,active,out_of_stock,all_year,2024-02-18,False
+252,Traxxas RC Car Pro,7,42,Traxxas,1122,44.7,26.7,12.1,21.45,27.05,active,out_of_stock,all_year,2022-05-07,False
+253,Buddy Cover 2024,8,43,Buddy,15310,95.1,19.5,28.8,56.25,84.22,active,in_stock,all_year,2021-06-04,False
+254,OxGord Cover Pro,8,43,OxGord,3552,79.1,25.4,44.2,370.85,492.94,active,in_stock,all_year,2020-11-06,True
+255,OxGord Cover Max,8,43,OxGord,9299,48.3,12.4,40.1,174.98,217.29,active,in_stock,all_year,2022-03-13,False
+256,Buddy Cover Elite,8,43,Buddy,15559,119.1,26.9,13.2,27.82,43.53,active,in_stock,all_year,2023-01-03,False
+257,Covercraft Car Cover Elite,8,43,Covercraft,9479,138.2,15.6,71.8,64.8,82.96,active,in_stock,all_year,2022-06-10,True
+258,Covercraft Car Cover Max,8,43,Covercraft,14565,101.3,31.4,60.8,334.63,485.83,active,in_stock,all_year,2022-11-27,True
+259,3D Maxpider 2024,8,44,3D,11758,87.5,5.3,41.2,412.21,657.09,active,in_stock,all_year,2020-07-27,True
+260,WeatherTech Mats Max,8,44,WeatherTech,12544,31.6,8.6,66.4,442.87,517.52,active,out_of_stock,all_year,2020-03-14,True
+261,3D Maxpider Elite,8,44,3D,5877,38.6,5.3,47.1,231.25,337.91,active,in_stock,all_year,2021-10-19,False
+262,3D Maxpider Elite,8,44,3D,5087,77.5,36.4,25.2,381.17,531.65,active,out_of_stock,all_year,2020-05-30,False
+263,WeatherTech Mats 2024,8,44,WeatherTech,9836,56.0,24.4,15.9,393.91,569.29,active,in_stock,all_year,2023-10-30,False
+264,WeatherTech Mats Plus,8,44,WeatherTech,2288,98.9,18.7,23.2,396.22,593.1,active,in_stock,all_year,2024-10-09,True
+265,Nextbase Dash Cam Elite,8,45,Nextbase,12332,97.2,39.2,47.0,468.28,546.01,active,in_stock,all_year,2022-02-18,False
+266,Thinkware Dash Cam Elite,8,45,Thinkware,2891,42.5,39.6,43.0,28.01,31.76,active,in_stock,all_year,2020-08-10,True
+267,Nextbase Dash Cam Plus,8,45,Nextbase,14379,57.2,31.8,59.9,356.87,407.27,active,in_stock,all_year,2024-03-05,False
+268,Garmin Dash Cam Pro,8,45,Garmin,5591,30.3,39.1,74.5,277.47,359.43,active,out_of_stock,all_year,2021-05-30,True
+269,Nextbase Dash Cam Elite,8,45,Nextbase,8511,76.9,13.4,76.7,61.38,80.85,active,in_stock,all_year,2021-01-08,False
+270,Thinkware Dash Cam Elite,8,45,Thinkware,4996,105.5,5.4,22.3,356.72,421.61,inactive,discontinued,all_year,2023-02-17,False
+271,Optima Battery Pro,8,46,Optima,4368,36.5,14.4,64.7,390.29,435.05,active,in_stock,all_year,2021-02-23,True
+272,DieHard Battery Elite,8,46,DieHard,17237,146.8,22.4,53.9,192.86,260.32,active,in_stock,all_year,2024-07-13,False
+273,Optima Battery Plus,8,46,Optima,584,107.6,30.9,18.1,41.14,63.0,active,in_stock,all_year,2024-10-01,False
+274,Optima Battery 2024,8,46,Optima,14241,141.1,24.4,70.0,127.77,156.41,active,in_stock,all_year,2020-07-15,True
+275,Interstate Battery Pro,8,46,Interstate,7813,35.5,6.8,57.1,406.08,645.95,inactive,discontinued,all_year,2022-12-15,True
+276,DieHard Battery X,8,46,DieHard,18623,56.7,16.5,69.1,239.24,307.29,active,out_of_stock,all_year,2023-05-27,True
+277,Slime Inflator Pro,8,47,Slime,6903,96.9,32.0,44.5,371.58,510.28,active,in_stock,all_year,2023-03-02,False
+278,Viair Inflator 2024,8,47,Viair,814,90.4,29.3,54.5,476.48,524.48,active,out_of_stock,all_year,2022-10-24,False
+279,Viair Inflator 2024,8,47,Viair,2462,88.9,22.2,26.7,486.83,570.17,active,in_stock,all_year,2020-08-17,True
+280,AstroAI Inflator Max,8,47,AstroAI,3282,111.1,39.1,36.1,298.77,404.15,active,in_stock,all_year,2020-11-03,True
+281,Slime Inflator Elite,8,47,Slime,10822,145.3,14.1,26.6,464.5,602.21,active,in_stock,all_year,2022-07-23,False
+282,Slime Inflator 2024,8,47,Slime,19659,29.7,32.3,24.2,72.31,83.36,active,in_stock,all_year,2022-10-12,True
+283,BDK Seat Covers Pro,8,48,BDK,9183,145.4,15.8,24.5,429.19,491.51,active,in_stock,all_year,2022-03-10,True
+284,FH Group Seat Covers X,8,48,FH Group,12156,131.4,29.9,20.4,210.2,236.36,active,out_of_stock,all_year,2024-07-03,True
+285,FH Group Seat Covers Max,8,48,FH Group,3603,131.1,24.3,48.9,241.78,363.14,active,in_stock,all_year,2023-03-04,True
+286,FH Group Seat Covers 2024,8,48,FH Group,3253,127.1,27.1,36.1,299.52,368.23,active,in_stock,all_year,2023-08-27,True
+287,FH Group Seat Covers Elite,8,48,FH Group,11364,77.6,36.7,19.0,78.81,123.82,active,out_of_stock,all_year,2021-10-14,False
+288,BDK Seat Covers Max,8,48,BDK,12098,84.5,19.9,36.8,123.06,146.88,active,out_of_stock,all_year,2024-12-03,True
+289,Garden of Life Plus,9,49,Garden of Life,4611,28.5,17.5,22.2,101.02,115.55,active,in_stock,all_year,2023-10-26,True
+290,Garden of Life X,9,49,Garden of Life,3041,26.3,14.6,8.4,101.14,150.77,active,in_stock,all_year,2020-01-28,False
+291,Centrum Vitamins Pro,9,49,Centrum,2401,15.4,10.5,15.0,21.13,33.72,active,out_of_stock,all_year,2020-11-22,True
+292,Nature Made Vitamins,9,49,Nature Made,558,17.4,18.3,13.3,155.17,244.22,active,out_of_stock,all_year,2022-03-01,False
+293,Centrum Vitamins X,9,49,Centrum,2705,39.7,10.9,11.8,163.18,236.42,active,in_stock,all_year,2022-11-16,False
+294,Garden of Life Plus,9,49,Garden of Life,4132,14.3,25.9,28.9,113.0,134.22,active,in_stock,all_year,2022-09-30,True
+295,Optimum Nutrition Protein Plus,9,50,Optimum Nutrition,1168,24.3,20.4,15.3,74.74,88.85,active,out_of_stock,all_year,2023-01-16,True
+296,Optimum Nutrition Protein 2024,9,50,Optimum Nutrition,4411,27.6,24.4,28.2,173.53,274.23,active,out_of_stock,all_year,2020-03-01,False
+297,Orgain Protein,9,50,Orgain,3678,20.1,29.4,15.1,160.45,253.56,active,in_stock,all_year,2021-05-22,False
+298,Optimum Nutrition Protein Elite,9,50,Optimum Nutrition,2512,27.7,12.7,11.9,34.2,50.08,active,out_of_stock,all_year,2020-01-13,False
+299,Orgain Protein,9,50,Orgain,1909,15.5,25.2,15.0,131.53,151.53,active,in_stock,all_year,2023-01-08,True
+300,Optimum Nutrition Protein Pro,9,50,Optimum Nutrition,826,39.5,27.1,11.7,166.12,238.38,active,in_stock,all_year,2021-04-06,True
+301,Hyperice Massager 2024,9,51,Hyperice,985,17.5,11.4,9.5,146.88,165.1,active,in_stock,all_year,2020-01-10,True
+302,Hyperice Massager Max,9,51,Hyperice,4027,36.5,14.4,15.7,159.86,222.05,active,in_stock,all_year,2021-06-04,False
+303,Theragun Massager X,9,51,Theragun,957,35.4,13.0,14.5,24.1,28.56,active,in_stock,all_year,2020-09-13,True
+304,Hyperice Massager Plus,9,51,Hyperice,3633,39.6,22.6,27.7,189.06,223.56,active,in_stock,all_year,2024-07-15,True
+305,Hyperice Massager 2024,9,51,Hyperice,4524,39.2,18.9,17.0,60.4,74.94,active,in_stock,all_year,2020-07-11,False
+306,Theragun Massager,9,51,Theragun,4034,20.8,12.4,17.4,47.94,53.35,active,in_stock,all_year,2022-01-22,True
+307,Greater Goods Monitor X,9,52,Greater Goods,2270,13.5,16.8,25.3,27.32,37.48,active,out_of_stock,all_year,2021-06-26,False
+308,Omron Monitor Max,9,52,Omron,2300,11.3,11.6,17.7,117.21,137.79,active,in_stock,all_year,2020-10-05,False
+309,iHealth Monitor Max,9,52,iHealth,3271,39.1,18.8,21.0,165.5,216.69,active,out_of_stock,all_year,2023-04-13,False
+310,iHealth Monitor 2024,9,52,iHealth,384,24.3,27.6,9.7,105.4,163.39,active,in_stock,all_year,2020-03-24,True
+311,Omron Monitor X,9,52,Omron,1835,23.5,9.2,28.9,163.61,190.29,active,out_of_stock,all_year,2020-04-04,False
+312,Omron Monitor X,9,52,Omron,648,28.8,11.4,26.4,26.54,36.58,active,out_of_stock,all_year,2024-01-05,False
+313,doTERRA Oils X,9,53,doTERRA,1021,31.0,24.5,20.9,88.74,104.19,active,out_of_stock,all_year,2024-12-13,True
+314,doTERRA Oils Plus,9,53,doTERRA,2916,33.4,26.7,25.3,176.8,217.83,active,in_stock,all_year,2022-09-18,False
+315,doTERRA Oils 2024,9,53,doTERRA,3390,18.3,20.2,11.2,17.37,26.83,active,in_stock,all_year,2022-06-04,False
+316,Young Living Oils Pro,9,53,Young Living,2396,10.6,12.6,26.0,170.14,260.16,active,out_of_stock,all_year,2023-10-13,True
+317,doTERRA Oils Pro,9,53,doTERRA,2307,39.2,25.6,17.7,148.47,208.23,active,in_stock,all_year,2020-12-13,False
+318,Plant Therapy Oils Max,9,53,Plant Therapy,4321,32.8,25.5,27.1,160.38,181.68,active,in_stock,all_year,2024-08-11,True
+319,Fitbit Tracker 2024,9,54,Fitbit,370,36.3,6.4,12.4,96.73,150.8,active,in_stock,all_year,2021-04-05,False
+320,Xiaomi Tracker Max,9,54,Xiaomi,3151,29.1,5.8,10.7,102.87,136.1,inactive,discontinued,all_year,2024-11-08,False
+321,Xiaomi Tracker Plus,9,54,Xiaomi,840,20.5,27.4,11.6,64.16,82.98,active,in_stock,all_year,2023-04-28,True
+322,Fitbit Tracker Elite,9,54,Fitbit,4304,16.8,21.3,12.5,13.81,20.58,active,in_stock,all_year,2023-05-24,True
+323,Xiaomi Tracker 2024,9,54,Xiaomi,2602,28.0,11.3,8.2,145.42,211.54,active,out_of_stock,all_year,2020-04-20,False
+324,Garmin Tracker Pro,9,54,Garmin,3353,16.5,18.0,14.6,121.05,133.6,inactive,discontinued,all_year,2023-02-26,False
+325,NutriBullet Blender Elite,10,55,NutriBullet,4146,41.7,29.0,19.9,33.19,52.91,active,out_of_stock,all_year,2024-11-05,False
+326,NutriBullet Blender Elite,10,55,NutriBullet,4437,57.8,11.6,32.8,233.16,361.36,active,out_of_stock,all_year,2024-10-17,False
+327,NutriBullet Blender Pro,10,55,NutriBullet,2621,45.6,27.9,35.2,88.94,116.45,active,in_stock,all_year,2020-11-11,True
+328,Ninja Blender Elite,10,55,Ninja,4097,47.1,27.3,34.0,273.36,392.53,active,out_of_stock,all_year,2023-04-23,True
+329,Ninja Blender,10,55,Ninja,4779,36.2,30.4,35.9,232.43,276.95,active,in_stock,all_year,2024-08-25,True
+330,Vitamix Blender Pro,10,55,Vitamix,7465,25.0,19.7,40.5,109.43,134.63,active,out_of_stock,all_year,2023-07-03,False
+331,Philips Air Fryer X,10,56,Philips,4068,43.5,26.7,30.3,268.49,362.53,active,in_stock,all_year,2023-02-21,False
+332,Ninja Air Fryer,10,56,Ninja,3007,54.2,39.7,15.3,131.62,182.25,active,in_stock,all_year,2024-01-22,False
+333,Cosori Air Fryer 2024,10,56,Cosori,1648,50.1,27.1,27.1,104.32,117.78,active,in_stock,all_year,2022-01-21,True
+334,Cosori Air Fryer X,10,56,Cosori,1260,22.1,32.3,37.5,190.13,269.37,active,out_of_stock,all_year,2020-02-20,False
+335,Philips Air Fryer,10,56,Philips,7507,39.0,38.3,35.6,106.83,162.02,active,in_stock,all_year,2024-08-11,True
+336,Philips Air Fryer Elite,10,56,Philips,4323,54.5,8.6,20.9,182.77,216.31,active,in_stock,all_year,2023-08-10,False
+337,Zwilling Knife Set Elite,10,57,Zwilling,5826,38.4,20.2,28.3,298.71,379.77,active,in_stock,all_year,2024-02-10,True
+338,Wusthof Knife Set X,10,57,Wusthof,1274,33.2,30.5,18.0,75.19,83.53,active,in_stock,all_year,2024-08-28,True
+339,Zwilling Knife Set Elite,10,57,Zwilling,592,26.5,6.7,28.7,203.66,290.58,active,in_stock,all_year,2020-05-17,False
+340,Zwilling Knife Set Max,10,57,Zwilling,1883,20.6,29.6,18.8,213.13,301.61,active,in_stock,all_year,2023-12-15,False
+341,Chicago Cutlery Plus,10,57,Chicago,4390,46.5,36.5,24.7,219.85,254.78,active,in_stock,all_year,2020-02-27,True
+342,Chicago Cutlery 2024,10,57,Chicago,3132,50.0,39.1,39.1,215.48,268.85,active,in_stock,all_year,2023-05-10,True
+343,Calphalon Cookware Max,10,58,Calphalon,7629,29.9,28.5,10.1,46.47,64.46,active,out_of_stock,all_year,2021-09-14,True
+344,Calphalon Cookware Elite,10,58,Calphalon,2625,19.6,13.1,19.0,90.28,101.57,active,out_of_stock,all_year,2022-12-28,False
+345,T-fal Cookware X,10,58,T-fal,7173,45.5,9.1,24.9,231.09,259.5,active,in_stock,all_year,2023-01-21,True
+346,T-fal Cookware Pro,10,58,T-fal,6205,55.3,14.4,43.4,41.49,62.55,active,in_stock,all_year,2022-05-16,False
+347,T-fal Cookware X,10,58,T-fal,5515,32.4,33.0,39.8,267.55,316.62,active,in_stock,all_year,2023-05-11,True
+348,Cuisinart Cookware Max,10,58,Cuisinart,3789,56.0,24.9,26.9,66.66,85.98,active,in_stock,all_year,2022-11-12,True
+349,Nespresso Machine Max,10,59,Nespresso,2343,20.1,6.6,24.4,201.67,223.08,active,in_stock,all_year,2020-06-05,True
+350,Breville Espresso X,10,59,Breville,980,30.2,29.5,28.3,138.36,202.47,active,in_stock,all_year,2022-08-18,False
+351,Keurig Coffee Maker X,10,59,Keurig,295,52.2,26.5,41.2,198.37,233.77,active,out_of_stock,all_year,2023-04-18,True
+352,Keurig Coffee Maker X,10,59,Keurig,612,37.1,39.0,18.4,159.47,219.31,active,out_of_stock,all_year,2023-05-04,True
+353,Nespresso Machine Max,10,59,Nespresso,3862,51.1,35.0,25.7,105.08,167.11,active,in_stock,all_year,2020-07-27,False
+354,Nespresso Machine,10,59,Nespresso,5149,40.1,8.2,10.0,289.5,410.73,active,in_stock,all_year,2023-06-25,False
+355,Pfaltzgraff Dinnerware Pro,10,60,Pfaltzgraff,2919,52.1,34.6,38.6,174.64,246.22,active,in_stock,all_year,2021-07-07,False
+356,Corelle Dinnerware,10,60,Corelle,6998,49.2,16.9,17.8,195.59,293.38,active,in_stock,all_year,2020-03-19,True
+357,Corelle Dinnerware 2024,10,60,Corelle,3552,37.2,31.0,38.8,45.48,63.92,active,out_of_stock,all_year,2024-02-21,False
+358,Corelle Dinnerware Max,10,60,Corelle,6402,52.1,16.8,16.7,133.12,208.11,active,in_stock,all_year,2023-12-01,False
+359,Pfaltzgraff Dinnerware Elite,10,60,Pfaltzgraff,235,41.5,38.7,27.6,166.15,186.8,active,out_of_stock,all_year,2020-06-01,False
+360,Lenox Dinnerware X,10,60,Lenox,6184,56.5,25.2,16.2,247.34,284.88,active,in_stock,all_year,2024-09-21,False
+361,Brother Printer Max,11,61,Brother,4582,59.0,31.7,46.5,105.49,134.12,active,out_of_stock,all_year,2020-02-26,True
+362,Brother Printer Plus,11,61,Brother,11593,45.0,15.5,39.4,141.47,177.82,active,in_stock,all_year,2023-03-08,True
+363,Canon Printer 2024,11,61,Canon,11116,41.2,17.1,20.2,41.84,60.89,inactive,discontinued,all_year,2022-01-19,True
+364,Epson Printer Elite,11,61,Epson,9449,15.8,21.8,22.8,236.24,343.74,active,out_of_stock,all_year,2020-02-18,False
+365,Brother Printer X,11,61,Brother,969,10.6,18.3,12.5,170.86,205.02,active,in_stock,all_year,2024-07-20,False
+366,Epson Printer 2024,11,61,Epson,12446,52.0,15.3,37.0,139.88,178.95,active,in_stock,all_year,2022-05-16,True
+367,Bonsaii Shredder Elite,11,62,Bonsaii,13187,38.1,32.5,18.0,177.07,256.13,active,in_stock,all_year,2023-10-15,False
+368,Bonsaii Shredder Pro,11,62,Bonsaii,3427,58.3,31.0,10.3,158.93,236.88,active,out_of_stock,all_year,2022-10-25,False
+369,Bonsaii Shredder Plus,11,62,Bonsaii,3270,46.9,30.4,16.3,80.6,95.81,active,in_stock,all_year,2023-12-18,True
+370,Bonsaii Shredder Plus,11,62,Bonsaii,4429,16.0,14.8,9.7,41.22,57.38,active,in_stock,all_year,2023-07-09,True
+371,Amazon Basics Shredder 2024,11,62,Amazon,10346,56.4,32.1,33.1,157.75,225.73,active,in_stock,all_year,2024-01-02,False
+372,Amazon Basics Shredder X,11,62,Amazon,8629,45.4,38.5,30.1,26.36,35.65,active,in_stock,all_year,2021-11-25,True
+373,BenQ Lamp 2024,11,63,BenQ,4909,54.2,16.6,35.9,62.43,92.17,active,out_of_stock,all_year,2023-06-15,True
+374,TaoTronics Lamp Elite,11,63,TaoTronics,10276,27.3,27.5,18.1,68.52,76.74,active,in_stock,all_year,2020-09-27,True
+375,BenQ Lamp Pro,11,63,BenQ,13569,37.0,36.9,19.9,194.92,264.54,active,in_stock,all_year,2021-06-30,False
+376,Amazon Basics Lamp 2024,11,63,Amazon,12770,26.0,8.4,11.5,139.11,153.53,active,in_stock,all_year,2020-10-29,True
+377,Amazon Basics Lamp Max,11,63,Amazon,14495,51.8,34.0,16.6,244.29,363.41,active,out_of_stock,all_year,2023-12-24,True
+378,TaoTronics Lamp Max,11,63,TaoTronics,3016,45.8,7.6,9.6,200.61,276.65,active,in_stock,all_year,2022-09-24,False
+379,Leuchtturm Notebook Max,11,64,Leuchtturm,6481,32.6,16.1,25.0,171.59,234.64,active,in_stock,all_year,2022-03-02,True
+380,Rhodia Notebook X,11,64,Rhodia,12992,13.6,8.7,47.0,174.61,245.03,active,out_of_stock,all_year,2023-11-30,False
+381,Leuchtturm Notebook X,11,64,Leuchtturm,2334,43.0,23.7,27.9,189.22,283.52,active,in_stock,all_year,2024-07-31,True
+382,Leuchtturm Notebook Elite,11,64,Leuchtturm,10715,54.3,35.3,48.5,99.55,156.76,active,in_stock,all_year,2022-10-12,True
+383,Moleskine Notebook,11,64,Moleskine,1494,38.6,24.2,24.6,83.13,122.55,active,in_stock,all_year,2021-10-05,False
+384,Rhodia Notebook X,11,64,Rhodia,13776,35.6,12.7,14.8,70.66,81.78,active,in_stock,all_year,2020-03-28,True
+385,Pilot Pens Max,11,65,Pilot,4207,42.2,28.5,11.1,33.57,49.11,active,in_stock,all_year,2024-11-21,True
+386,Pilot Pens Elite,11,65,Pilot,3270,21.7,7.4,20.0,86.27,114.34,active,in_stock,all_year,2024-02-05,True
+387,Pilot Pens Plus,11,65,Pilot,179,28.2,20.0,21.3,85.17,127.14,active,in_stock,all_year,2024-10-30,False
+388,Paper Mate Pens 2024,11,65,Paper Mate,7396,44.0,21.8,21.9,96.1,120.39,active,in_stock,all_year,2023-05-21,True
+389,Paper Mate Pens X,11,65,Paper Mate,12118,51.3,11.9,45.4,222.72,253.51,active,in_stock,all_year,2021-12-25,True
+390,Pilot Pens Plus,11,65,Pilot,9137,30.3,36.7,32.8,72.55,112.23,active,in_stock,all_year,2020-07-04,True
+391,Bostitch Stapler Max,11,66,Bostitch,4867,21.2,30.7,40.4,42.13,56.9,active,in_stock,all_year,2022-01-30,True
+392,Stanley Stapler 2024,11,66,Stanley,2817,52.4,26.5,41.9,191.73,224.36,active,in_stock,all_year,2020-03-08,True
+393,Stanley Stapler Elite,11,66,Stanley,8089,34.2,12.7,23.1,65.62,80.86,active,in_stock,all_year,2020-04-04,False
+394,Bostitch Stapler Max,11,66,Bostitch,10725,55.9,6.4,45.0,87.78,127.44,active,out_of_stock,all_year,2024-06-18,False
+395,Stanley Stapler Plus,11,66,Stanley,9728,38.5,18.2,23.8,166.8,253.16,active,in_stock,all_year,2021-05-31,True
+396,Stanley Stapler Max,11,66,Stanley,7998,27.6,22.0,44.4,222.92,245.95,active,in_stock,all_year,2023-05-23,True
+397,Purina Dog Food Plus,12,67,Purina,6134,69.7,23.1,22.7,93.49,141.03,active,in_stock,all_year,2023-06-15,False
+398,Royal Canin Dog Food,12,67,Royal Canin,2841,55.9,24.7,38.7,99.91,130.43,active,in_stock,all_year,2023-04-13,True
+399,Purina Dog Food Elite,12,67,Purina,2925,58.6,20.3,63.4,44.67,53.16,inactive,discontinued,all_year,2023-09-01,True
+400,Royal Canin Dog Food Elite,12,67,Royal Canin,7559,71.2,16.0,27.0,94.13,125.73,active,in_stock,all_year,2020-12-29,False

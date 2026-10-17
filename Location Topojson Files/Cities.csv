@@ -1,0 +1,121 @@
+city,country,region,latitude,longitude
+New York,USA,North America,40.7128,-74.006
+Los Angeles,USA,North America,34.0522,-118.2437
+Chicago,USA,North America,41.8781,-87.6298
+Houston,USA,North America,29.7604,-95.3698
+Phoenix,USA,North America,33.4484,-112.074
+Philadelphia,USA,North America,39.9526,-75.1652
+San Antonio,USA,North America,29.4241,-98.4936
+San Diego,USA,North America,32.7157,-117.1611
+Dallas,USA,North America,32.7767,-96.797
+Austin,USA,North America,30.2672,-97.7431
+Toronto,Canada,North America,43.6532,-79.3832
+Vancouver,Canada,North America,49.2827,-123.1207
+Montreal,Canada,North America,45.5017,-73.5673
+Calgary,Canada,North America,51.0447,-114.0719
+Edmonton,Canada,North America,53.5461,-113.4938
+Ottawa,Canada,North America,45.4215,-75.6972
+Quebec City,Canada,North America,46.8139,-71.208
+Winnipeg,Canada,North America,49.8951,-97.1384
+Hamilton,Canada,North America,43.2557,-79.8711
+Mississauga,Canada,North America,43.589,-79.6441
+São Paulo,Brazil,South America,-23.5505,-46.6333
+Rio de Janeiro,Brazil,South America,-22.9068,-43.1729
+Brasília,Brazil,South America,-15.7801,-47.9292
+Salvador,Brazil,South America,-12.9714,-38.5014
+Fortaleza,Brazil,South America,-3.7319,-38.5267
+Belo Horizonte,Brazil,South America,-19.9167,-43.9345
+Manaus,Brazil,South America,-3.119,-60.0217
+Curitiba,Brazil,South America,-25.429,-49.2671
+Recife,Brazil,South America,-8.0578,-34.8829
+Porto Alegre,Brazil,South America,-30.0346,-51.2177
+Buenos Aires,Argentina,South America,-34.6037,-58.3816
+Córdoba,Argentina,South America,-31.4201,-64.1888
+Rosario,Argentina,South America,-32.9442,-60.6505
+Mendoza,Argentina,South America,-32.8908,-68.8272
+La Plata,Argentina,South America,-34.9205,-57.9536
+Tucumán,Argentina,South America,-26.8241,-65.2226
+Mar del Plata,Argentina,South America,-38.0023,-57.5575
+Salta,Argentina,South America,-24.7821,-65.4232
+Santa Fe,Argentina,South America,-31.6333,-60.7
+San Juan,Argentina,South America,-31.5375,-68.5364
+London,United Kingdom,Europe,51.5074,-0.1278
+Manchester,United Kingdom,Europe,53.4808,-2.2426
+Birmingham,United Kingdom,Europe,52.4862,-1.8904
+Glasgow,United Kingdom,Europe,55.8642,-4.2518
+Liverpool,United Kingdom,Europe,53.4084,-2.9916
+Bristol,United Kingdom,Europe,51.4545,-2.5879
+Sheffield,United Kingdom,Europe,53.3811,-1.4701
+Leeds,United Kingdom,Europe,53.8008,-1.5491
+Edinburgh,United Kingdom,Europe,55.9533,-3.1883
+Leicester,United Kingdom,Europe,52.6369,-1.1398
+Berlin,Germany,Europe,52.52,13.405
+Munich,Germany,Europe,48.1351,11.582
+Hamburg,Germany,Europe,53.5753,10.0153
+Cologne,Germany,Europe,50.9333,6.95
+Frankfurt,Germany,Europe,50.1109,8.6821
+Stuttgart,Germany,Europe,48.7758,9.1829
+Düsseldorf,Germany,Europe,51.2217,6.7762
+Leipzig,Germany,Europe,51.3397,12.3731
+Dresden,Germany,Europe,51.0509,13.7383
+Hanover,Germany,Europe,52.3759,9.732
+Paris,France,Europe,48.8566,2.3522
+Marseille,France,Europe,43.2965,5.3698
+Lyon,France,Europe,45.764,4.8357
+Toulouse,France,Europe,43.6047,1.4442
+Nice,France,Europe,43.7102,7.262
+Nantes,France,Europe,47.2184,-1.5536
+Strasbourg,France,Europe,48.5734,7.7521
+Montpellier,France,Europe,43.6119,3.8772
+Bordeaux,France,Europe,44.8378,-0.5792
+Lille,France,Europe,50.6292,3.0573
+Rome,Italy,Europe,41.9028,12.4964
+Milan,Italy,Europe,45.4654,9.1859
+Naples,Italy,Europe,40.8518,14.2681
+Turin,Italy,Europe,45.0703,7.6869
+Florence,Italy,Europe,43.7696,11.2558
+Venice,Italy,Europe,45.4408,12.3155
+Bologna,Italy,Europe,44.4949,11.3426
+Genoa,Italy,Europe,44.4056,8.9463
+Palermo,Italy,Europe,38.1157,13.3615
+Bari,Italy,Europe,41.1171,16.8719
+Sydney,Australia,Oceania,-33.8688,151.2093
+Melbourne,Australia,Oceania,-37.8136,144.9631
+Brisbane,Australia,Oceania,-27.4698,153.0251
+Perth,Australia,Oceania,-31.9505,115.8605
+Adelaide,Australia,Oceania,-34.9285,138.6007
+Gold Coast,Australia,Oceania,-28.0167,153.4
+Newcastle,Australia,Oceania,-32.9167,151.75
+Canberra,Australia,Oceania,-35.2809,149.13
+Wollongong,Australia,Oceania,-34.4278,150.8931
+Hobart,Australia,Oceania,-42.8821,147.3272
+Auckland,New Zealand,Oceania,-36.8485,174.7633
+Wellington,New Zealand,Oceania,-41.2865,174.7762
+Christchurch,New Zealand,Oceania,-43.5321,172.6362
+Hamilton,New Zealand,Oceania,-37.787,175.2793
+Tauranga,New Zealand,Oceania,-37.6878,176.1651
+Dunedin,New Zealand,Oceania,-45.8788,170.5028
+Palmerston North,New Zealand,Oceania,-40.3523,175.6082
+Napier,New Zealand,Oceania,-39.4928,176.912
+Hibiscus Coast,New Zealand,Oceania,-36.6167,174.7
+New Plymouth,New Zealand,Oceania,-39.0556,174.0752
+Johannesburg,South Africa,Africa,-26.2041,28.0473
+Cape Town,South Africa,Africa,-33.9249,18.4241
+Durban,South Africa,Africa,-29.8587,31.0218
+Pretoria,South Africa,Africa,-25.7479,28.2293
+Port Elizabeth,South Africa,Africa,-33.9608,25.6022
+Bloemfontein,South Africa,Africa,-29.0852,26.1596
+East London,South Africa,Africa,-33.0153,27.9116
+Polokwane,South Africa,Africa,-23.9045,29.4688
+Nelspruit,South Africa,Africa,-25.4753,30.9694
+Kimberley,South Africa,Africa,-28.7323,24.7623
+Lagos,Nigeria,Africa,6.5244,3.3792
+Abuja,Nigeria,Africa,9.0579,7.4951
+Kano,Nigeria,Africa,12.0022,8.592
+Ibadan,Nigeria,Africa,7.3775,3.947
+Port Harcourt,Nigeria,Africa,4.8156,7.0498
+Benin City,Nigeria,Africa,6.335,5.627
+Kaduna,Nigeria,Africa,10.5105,7.4165
+Enugu,Nigeria,Africa,6.4584,7.5464
+Onitsha,Nigeria,Africa,6.1333,6.7833
+Aba,Nigeria,Africa,5.1066,7.3667

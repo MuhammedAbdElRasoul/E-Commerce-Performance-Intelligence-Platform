@@ -1,0 +1,349 @@
+# ALL TABLES AND THEIR COLUMNS - COMPLETE REFERENCE
+
+## TABLE 1: DATE DIMENSION
+
+Columns:
+- date_id (PK) - Integer in YYYYMMDD format
+- full_date - Date
+- day_of_week - String (Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday)
+- week_number - Integer (1-53)
+- month - Integer (1-12)
+- month_name - String (January to December)
+- quarter - Integer (1, 2, 3, 4)
+- year - Integer (2022, 2023, 2024, 2025, 2026)
+- is_weekend - Boolean (True for Saturday/Sunday, False otherwise)
+- is_holiday - Boolean (True for Black Friday, Christmas, New Year, Independence Day, Halloween)
+
+## TABLE 2: LOCATION
+
+Columns:
+- location_id (PK) - Integer
+- country - String (USA, Canada, Brazil, Argentina, United Kingdom, Germany, France, Italy, Australia, New Zealand, South Africa, Nigeria)
+- state - String (Real state names, nullable if country has no state system)
+- city - String (Real city names only, no dummy names)
+- zip_code - String (Realistic zip codes that map to exactly one city)
+- region - String (North America, South America, Europe, Oceania, Africa)
+- timezone - String (America/New_York, America/Toronto, America/Sao_Paulo, America/Argentina/Buenos_Aires, Europe/London, Europe/Berlin, Europe/Paris, Europe/Rome, Australia/Sydney, Pacific/Auckland, Africa/Johannesburg, Africa/Lagos)
+
+## TABLE 3: CATEGORY
+
+Columns:
+- category_id (PK) - Integer (1 to 12)
+- category_name - String (Electronics, Clothing, Home Furniture, Sports Equipment, Beauty & Personal Care, Books, Toys & Games, Automotive, Health & Wellness, Kitchen & Dining, Office Products, Pet Supplies)
+
+## TABLE 4: SUBCATEGORY
+
+Columns:
+- subcategory_id (PK) - Integer (1 to 72)
+- subcategory_name - String (Real commercial subcategory names)
+- category_id (FK) - Integer (References Category.category_id)
+
+Subcategory names by category:
+Electronics (1): Smartphones, Laptops, Headphones, Smartwatches, Tablets, Cameras
+Clothing (2): Running Shoes, T-Shirts, Jeans, Jackets, Dresses, Sneakers
+Home Furniture (3): Office Chairs, Sofas, Bed Frames, Dining Tables, Bookshelves, Desks
+Sports Equipment (4): Yoga Mats, Dumbbells, Treadmills, Basketballs, Soccer Balls, Tennis Rackets
+Beauty & Personal Care (5): Shampoos, Face Creams, Makeup Kits, Perfumes, Hair Dryers, Electric Shavers
+Books (6): Fiction, Non-Fiction, Children Books, Textbooks, Cookbooks, Biographies
+Toys & Games (7): Action Figures, Board Games, Lego Sets, Dolls, Puzzles, Remote Control Cars
+Automotive (8): Car Covers, Floor Mats, Dash Cams, Car Batteries, Tire Inflators, Seat Covers
+Health & Wellness (9): Vitamins, Protein Powders, Massage Guns, Blood Pressure Monitors, Essential Oils, Fitness Trackers
+Kitchen & Dining (10): Blenders, Air Fryers, Knife Sets, Cookware Sets, Coffee Makers, Dinnerware
+Office Products (11): Printers, Paper Shredders, Desk Lamps, Notebooks, Pens, Staplers
+Pet Supplies (12): Dog Food, Cat Beds, Leashes, Pet Carriers, Aquarium Filters, Bird Cages
+
+## TABLE 5: PRODUCTS
+
+Columns:
+- product_id (PK) - Integer (1 to 400)
+- product_name - String (Real product names only, no placeholders)
+- category_id (FK) - Integer (References Category.category_id)
+- subcategory_id (FK) - Integer (References Subcategory.subcategory_id)
+- product_brand - String (Real brands only: Apple, Samsung, Nike, Adidas, Sony, etc.)
+- product_weight_g - Integer (Grams, ranges by category)
+- product_length_cm - Decimal (Centimeters, ranges by category)
+- product_height_cm - Decimal (Centimeters, ranges by category)
+- product_width_cm - Decimal (Centimeters, ranges by category)
+- product_cost - Decimal (10 to 1500 USD, ranges by category)
+- product_price - Decimal (10% to 60% higher than cost)
+- product_status - String (active, inactive)
+- product_availability_status - String (in_stock, out_of_stock, discontinued)
+- product_season - String (summer, winter, all_year)
+- product_launch_date - Date (Between 2020 and 2024)
+- is_returnable - Boolean (True or False)
+
+Product status rules:
+- active products can be in_stock or out_of_stock only
+- inactive products must be discontinued
+
+Distribution:
+- 75% active + in_stock
+- 10% active + out_of_stock
+- 15% inactive + discontinued
+
+## TABLE 6: CUSTOMERS
+
+Columns:
+- customer_id (PK) - Integer (1 to 5,000)
+- location_id (FK) - Integer (References Location.location_id)
+- customer_name - String (First + Middle + Last, unique, regional conventions)
+- customer_gender - String (Male, Female)
+- customer_age - Integer (18 to 75)
+- customer_segment - String (new, regular, VIP)
+- preferred_channel - String (web, app, mobile, other)
+- signup_date - Date (Between 2020 and 2024, before first order)
+
+Customer segment distribution:
+- new: 60%
+- regular: 35%
+- VIP: 5% (generates 30% of revenue)
+
+Preferred channel distribution:
+- web: 40%
+- app: 35%
+- mobile: 20%
+- other: 5%
+
+Orders per customer distribution:
+- 60% have 1 order
+- 25% have 2-3 orders
+- 15% have 4 or more orders
+
+## TABLE 7: SELLERS
+
+Columns:
+- seller_id (PK) - Integer (1 to 150)
+- seller_name - String (First + Middle + Last, unique, regional conventions)
+- location_id (FK) - Integer (References Location.location_id)
+- seller_active_flag - Boolean (True or False)
+- seller_join_date - Date (Between 2018 and 2023)
+- seller_tier - String (gold, silver, bronze)
+- seller_rating - Decimal (1.0 to 5.0)
+
+Seller tier rules:
+- gold: rating 4.0 to 5.0, 20% of sellers, generate 70% of revenue
+- silver: rating 3.5 to 4.0, 50% of sellers
+- bronze: rating 2.5 to 3.5, 30% of sellers
+
+## TABLE 8: ORDERS
+
+Columns:
+- order_id (PK) - Integer (1 to 10,000)
+- customer_id (FK) - Integer (References Customers.customer_id)
+- order_purchase_timestamp - DateTime
+- order_approved_at - DateTime (Purchase time + 0 to 24 hours)
+- order_status - String (delivered, shipped, canceled, returned)
+- order_channel - String (web, app, mobile, other)
+- order_type - String (first_time, repeat)
+- coupon_code - String (Nullable, COUPON_XXXX format for 15% of orders)
+- is_gift - Boolean (True for 8% of orders)
+
+Order status distribution:
+- delivered: 80%
+- shipped: 10%
+- canceled: 5%
+- returned: 5%
+
+Order channel distribution:
+- web: 40%
+- app: 35%
+- mobile: 20%
+- other: 5%
+
+Order type distribution:
+- first_time: 40%
+- repeat: 60%
+
+Seasonality distribution:
+- Q4 (Oct-Dec): 35% of orders
+- Q1 (Jan-Mar): 20% of orders
+- Q2 (Apr-Jun): 20% of orders
+- Q3 (Jul-Sep): 25% of orders
+
+Weekend effect: 15-20% more orders on Saturday and Sunday
+Holiday effect: 25-35% more orders on public holidays
+Peak hours: 7 PM to 11 PM
+
+## TABLE 9: ORDER ITEMS
+
+Columns:
+- order_item_id (PK) - Integer (1 to approximately 20,000)
+- order_id (FK) - Integer (References Orders.order_id)
+- product_id (FK) - Integer (References Products.product_id)
+- seller_id (FK) - Integer (References Sellers.seller_id)
+- quantity - Integer (1 to 3 units)
+- unit_price - Decimal (Equals product_price at order time)
+- freight_value - Decimal (Calculated based on product dimensions and category, $2 to $80)
+- cogs - Decimal (Equals product_cost)
+- discount_value - Decimal (0 or 5% to 40% of unit_price)
+- discount_pct - Decimal (0 or 5 to 40)
+- return_flag - Boolean (True only for returned orders)
+
+Discount rules:
+- 20-30% of items have discounts
+- Discount range: 5% to 40%
+- Discount only allowed if order has coupon_code
+- If no coupon_code, discount_value and discount_pct must be 0
+
+Return rules:
+- return_flag can only be true for returned orders
+- 60% full return (all items in order have return_flag = True)
+- 40% partial return (only some items have return_flag = True)
+
+Freight value calculation:
+- Based on base_freight by category + weight_kg x weight_factor + volume_liters x volume_factor
+- Random variation of +/-15%
+- Minimum $2
+
+## TABLE 10: PAYMENTS
+
+Columns:
+- payment_id (PK) - Integer (Same as order_id)
+- order_id (FK) - Integer (References Orders.order_id)
+- payment_type - String (card, paypal, cod, other)
+- payment_value - Decimal (unit_price x quantity + freight_value - discount_value)
+- payment_status - String (success, failed, refunded)
+- payment_date - DateTime (Within 0-48 hours of order_purchase_timestamp)
+
+Payment type distribution:
+- card: 50%
+- paypal: 20%
+- cod: 20%
+- other: 10%
+
+Payment status mapping:
+- success: delivered or shipped orders
+- failed: canceled orders
+- refunded: returned orders (60% of returned orders)
+- success: returned orders (40% of returned orders)
+
+## TABLE 11: DELIVERY
+
+Columns:
+- order_id (PK, FK) - Integer (References Orders.order_id)
+- order_delivered_carrier_date - DateTime (order_approved_at + 1-3 days)
+- order_delivered_customer_date - DateTime (carrier_date + 2-9 days for delivered, estimated for others)
+- order_estimated_delivery_date - DateTime (carrier_date + 5-14 days)
+- shipping_provider - String (FedEx, UPS, USPS, DHL, local carrier)
+- delay_days - Integer (customer_date - estimated_date, 0 for canceled)
+- delivery_status - String (on_time, late, very_late, estimated_on_time, estimated_late, estimated_very_late, canceled, returned_on_time, returned_late, returned_very_late)
+
+Shipping providers by region:
+- North America: FedEx, UPS, USPS
+- Europe: DHL, local carrier
+- South America, Africa, Oceania: local carrier
+
+Timing rules:
+- carrier pickup: 1-3 days after approval
+- estimated delivery: 5-14 days after carrier pickup
+- actual delivery: 2-9 days after carrier pickup (for delivered orders)
+
+Delivery status by order status:
+- delivered: on_time (delay <= 0), late (delay 1-3), very_late (delay > 3)
+- shipped: estimated_on_time, estimated_late, estimated_very_late
+- canceled: canceled
+- returned: returned_on_time, returned_late, returned_very_late
+
+No NULL dates: All orders have all delivery dates populated (estimated dates for non-delivered orders)
+
+## TABLE 12: REVIEWS
+
+Columns:
+- review_id (PK) - Integer (1 to approximately 5,200)
+- order_id (FK) - Integer (References Orders.order_id)
+- review_score - Integer (1 to 5)
+- review_comment_title - String (Nullable, first 50 characters of message)
+- review_comment_message - String (Nullable, predefined realistic review texts)
+- review_creation_date - DateTime (order_delivered_customer_date + 2-14 days)
+- review_type - String (text, rating_only)
+- review_sentiment - String (positive, neutral, negative)
+- is_verified_purchase - Boolean (Always True)
+
+Review rules:
+- Only delivered orders can have reviews
+- 60-70% of delivered orders receive reviews
+
+Review score distribution:
+- 5 stars: 35%
+- 4 stars: 35%
+- 3 stars: 15%
+- 2 stars: 10%
+- 1 star: 5%
+
+Sentiment mapping:
+- score 4-5: positive
+- score 3: neutral
+- score 1-2: negative
+
+Review type distribution:
+- text: 50% (has comment title and message)
+- rating_only: 50% (only score, no text)
+
+Review message pools:
+- Positive reviews: 12 messages
+- Neutral reviews: 9 messages
+- Negative reviews: 9 messages
+
+## COMPLETE RELATIONSHIP CHAIN
+
+Customers.location_id -> Location.location_id
+Sellers.location_id -> Location.location_id
+Orders.customer_id -> Customers.customer_id
+Order Items.order_id -> Orders.order_id
+Order Items.product_id -> Products.product_id
+Order Items.seller_id -> Sellers.seller_id
+Products.category_id -> Category.category_id
+Products.subcategory_id -> Subcategory.subcategory_id
+Subcategory.category_id -> Category.category_id
+Payments.order_id -> Orders.order_id
+Delivery.order_id -> Orders.order_id
+Reviews.order_id -> Orders.order_id
+
+## PRIMARY KEYS SUMMARY
+
+date_dimension: date_id
+location: location_id
+category: category_id
+subcategory: subcategory_id
+products: product_id
+customers: customer_id
+sellers: seller_id
+orders: order_id
+order_items: order_item_id
+payments: payment_id
+delivery: order_id
+reviews: review_id
+
+## FOREIGN KEYS SUMMARY
+
+subcategory.category_id -> category.category_id
+products.category_id -> category.category_id
+products.subcategory_id -> subcategory.subcategory_id
+customers.location_id -> location.location_id
+sellers.location_id -> location.location_id
+orders.customer_id -> customers.customer_id
+order_items.order_id -> orders.order_id
+order_items.product_id -> products.product_id
+order_items.seller_id -> sellers.seller_id
+payments.order_id -> orders.order_id
+delivery.order_id -> orders.order_id
+reviews.order_id -> orders.order_id
+
+## DATA TYPES SUMMARY
+
+Integer: All ID columns, age, week_number, month, quarter, year, quantity, delay_days, review_score
+Decimal: product_weight_g, product_length_cm, product_height_cm, product_width_cm, product_cost, product_price, unit_price, freight_value, cogs, discount_value, discount_pct, seller_rating, payment_value
+String: All name columns, status columns, type columns, channel columns, sentiment columns
+DateTime: All timestamp and date columns
+Boolean: is_weekend, is_holiday, is_returnable, seller_active_flag, is_gift, return_flag, is_verified_purchase
+Date: full_date, product_launch_date, signup_date, seller_join_date
+Time: Not used directly (all times in DateTime)
+
+## NULLABLE COLUMNS
+
+state (Location) - nullable if country has no state system
+coupon_code (Orders) - nullable (85% of orders have NULL)
+review_comment_title (Reviews) - nullable (50% of reviews have NULL)
+review_comment_message (Reviews) - nullable (50% of reviews have NULL)
+
+All other columns are NOT NULL.

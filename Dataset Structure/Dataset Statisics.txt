@@ -1,0 +1,20 @@
+═══════════════════════════════════════
+        DATASET STATISTICS
+═══════════════════════════════════════
+Table                    Rows
+───────────────────────────────────────
+Date Dimension           1,550
+Location                   150
+Category                    12
+Subcategory                 72
+Products                   400
+Customers                5,000
+Sellers                    150
+Orders                  10,000
+Order Items            ~20,000
+Payments                10,000
+Delivery                10,000
+Reviews                 ~5,200
+───────────────────────────────────────
+Total                  ~62,534
+═══════════════════════════════════════
